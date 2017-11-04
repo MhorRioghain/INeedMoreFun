@@ -103,7 +103,19 @@
               <Mapping SourceColumn="IsFavourite" DataSetColumn="IsFavourite" />
               <Mapping SourceColumn="Shelf" DataSetColumn="Shelf" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="BooksConnectionString (Settings)" DbObjectName="TBooks" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FindSeries" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FindSeries" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FindSeries">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DISTINCT Series
+FROM     TBooks
+WHERE  (Series &lt;&gt; '')
+ORDER BY Series</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TCategoriesTableAdapter" GeneratorDataComponentClassName="TCategoriesTableAdapter" Name="TCategories" UserDataComponentName="TCategoriesTableAdapter">
             <MainSource>
@@ -212,7 +224,7 @@
   <xs:element name="BooksDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BooksDataSet" msprop:Generator_UserDSName="BooksDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TBooks" msprop:Generator_TableClassName="TBooksDataTable" msprop:Generator_TableVarName="tableTBooks" msprop:Generator_TablePropName="TBooks" msprop:Generator_RowDeletingName="TBooksRowDeleting" msprop:Generator_RowChangingName="TBooksRowChanging" msprop:Generator_RowEvHandlerName="TBooksRowChangeEventHandler" msprop:Generator_RowDeletedName="TBooksRowDeleted" msprop:Generator_UserTableName="TBooks" msprop:Generator_RowChangedName="TBooksRowChanged" msprop:Generator_RowEvArgName="TBooksRowChangeEvent" msprop:Generator_RowClassName="TBooksRow">
+        <xs:element name="TBooks" msprop:Generator_TableClassName="TBooksDataTable" msprop:Generator_TableVarName="tableTBooks" msprop:Generator_RowChangedName="TBooksRowChanged" msprop:Generator_TablePropName="TBooks" msprop:Generator_RowDeletingName="TBooksRowDeleting" msprop:Generator_RowChangingName="TBooksRowChanging" msprop:Generator_RowEvHandlerName="TBooksRowChangeEventHandler" msprop:Generator_RowDeletedName="TBooksRowDeleted" msprop:Generator_RowClassName="TBooksRow" msprop:Generator_UserTableName="TBooks" msprop:Generator_RowEvArgName="TBooksRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -252,7 +264,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TCategories" msprop:Generator_TableClassName="TCategoriesDataTable" msprop:Generator_TableVarName="tableTCategories" msprop:Generator_TablePropName="TCategories" msprop:Generator_RowDeletingName="TCategoriesRowDeleting" msprop:Generator_RowChangingName="TCategoriesRowChanging" msprop:Generator_RowEvHandlerName="TCategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="TCategoriesRowDeleted" msprop:Generator_UserTableName="TCategories" msprop:Generator_RowChangedName="TCategoriesRowChanged" msprop:Generator_RowEvArgName="TCategoriesRowChangeEvent" msprop:Generator_RowClassName="TCategoriesRow">
+        <xs:element name="TCategories" msprop:Generator_TableClassName="TCategoriesDataTable" msprop:Generator_TableVarName="tableTCategories" msprop:Generator_RowChangedName="TCategoriesRowChanged" msprop:Generator_TablePropName="TCategories" msprop:Generator_RowDeletingName="TCategoriesRowDeleting" msprop:Generator_RowChangingName="TCategoriesRowChanging" msprop:Generator_RowEvHandlerName="TCategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="TCategoriesRowDeleted" msprop:Generator_RowClassName="TCategoriesRow" msprop:Generator_UserTableName="TCategories" msprop:Generator_RowEvArgName="TCategoriesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -266,7 +278,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TShelf" msprop:Generator_TableClassName="TShelfDataTable" msprop:Generator_TableVarName="tableTShelf" msprop:Generator_TablePropName="TShelf" msprop:Generator_RowDeletingName="TShelfRowDeleting" msprop:Generator_RowChangingName="TShelfRowChanging" msprop:Generator_RowEvHandlerName="TShelfRowChangeEventHandler" msprop:Generator_RowDeletedName="TShelfRowDeleted" msprop:Generator_UserTableName="TShelf" msprop:Generator_RowChangedName="TShelfRowChanged" msprop:Generator_RowEvArgName="TShelfRowChangeEvent" msprop:Generator_RowClassName="TShelfRow">
+        <xs:element name="TShelf" msprop:Generator_TableClassName="TShelfDataTable" msprop:Generator_TableVarName="tableTShelf" msprop:Generator_RowChangedName="TShelfRowChanged" msprop:Generator_TablePropName="TShelf" msprop:Generator_RowDeletingName="TShelfRowDeleting" msprop:Generator_RowChangingName="TShelfRowChanging" msprop:Generator_RowEvHandlerName="TShelfRowChangeEventHandler" msprop:Generator_RowDeletedName="TShelfRowDeleted" msprop:Generator_RowClassName="TShelfRow" msprop:Generator_UserTableName="TShelf" msprop:Generator_RowEvArgName="TShelfRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -298,8 +310,8 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="TShelfTBooks" msdata:parent="TShelf" msdata:child="TBooks" msdata:parentkey="Id" msdata:childkey="Shelf" msprop:Generator_UserChildTable="TBooks" msprop:Generator_ChildPropName="GetTBooksRows" msprop:Generator_UserRelationName="TShelfTBooks" msprop:Generator_RelationVarName="relationTShelfTBooks" msprop:Generator_UserParentTable="TShelf" msprop:Generator_ParentPropName="TShelfRow" />
-      <msdata:Relationship name="TCategoriesTBooks" msdata:parent="TCategories" msdata:child="TBooks" msdata:parentkey="Id" msdata:childkey="Category" msprop:Generator_UserChildTable="TBooks" msprop:Generator_ChildPropName="GetTBooksRows" msprop:Generator_UserRelationName="TCategoriesTBooks" msprop:Generator_RelationVarName="relationTCategoriesTBooks" msprop:Generator_UserParentTable="TCategories" msprop:Generator_ParentPropName="TCategoriesRow" />
+      <msdata:Relationship name="TShelfTBooks" msdata:parent="TShelf" msdata:child="TBooks" msdata:parentkey="Id" msdata:childkey="Shelf" msprop:Generator_UserChildTable="TBooks" msprop:Generator_ChildPropName="GetTBooksRows" msprop:Generator_UserRelationName="TShelfTBooks" msprop:Generator_ParentPropName="TShelfRow" msprop:Generator_RelationVarName="relationTShelfTBooks" msprop:Generator_UserParentTable="TShelf" />
+      <msdata:Relationship name="TCategoriesTBooks" msdata:parent="TCategories" msdata:child="TBooks" msdata:parentkey="Id" msdata:childkey="Category" msprop:Generator_UserChildTable="TBooks" msprop:Generator_ChildPropName="GetTBooksRows" msprop:Generator_UserRelationName="TCategoriesTBooks" msprop:Generator_ParentPropName="TCategoriesRow" msprop:Generator_RelationVarName="relationTCategoriesTBooks" msprop:Generator_UserParentTable="TCategories" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -88,10 +88,5 @@ namespace Bookshelf
         {
             tBooksBindingSource.Filter = "[Title] LIKE '%" + FilterBox.Text + "%'";
         }
-
-        private void AddBooks_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            MainForm.ab = null;
-        }
     }
 }

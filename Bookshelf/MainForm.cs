@@ -12,16 +12,16 @@ namespace Bookshelf
 {
     public partial class MainForm : Form
     {
-        public static AddBooks ab = null;
+        public AddBooks ab = null;
 
         public MainForm()
         {
-            InitializeComponent();
+            InitializeComponent();        
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
-        {            
-            if (ab == null)
+        {
+            if (ab == null || ab.Text == "")
             {
                 ab = new AddBooks();
                 ab.Show();
@@ -29,7 +29,7 @@ namespace Bookshelf
             else
             {
                 ab.Activate();
-            }           
+            }
         }
 
         private void tBooksBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
@@ -47,19 +47,77 @@ namespace Bookshelf
             this.tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
         }
 
-        private void MainForm_Activated(object sender, EventArgs e)
+        private void UpdateTable_Click(object sender, EventArgs e)
         {
-            this.tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
+            tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
+            tCategoriesTableAdapter.Fill(this.booksDataSet.TCategories);
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void TitleFilter_Click(object sender, EventArgs e)
         {
-            ab = null;
+            tBooksBindingSource.Filter = "[Title] LIKE '%" + FilterBox.Text + "%'";
         }
 
-        private void TitleBtn_Click(object sender, EventArgs e)
+        private void AuthorFilter_Click(object sender, EventArgs e)
         {
-            ab = null;
+
+        }
+
+        private void ShowAll_Click(object sender, EventArgs e)
+        {
+            tBooksBindingSource.Filter = "";
+        }
+
+        private void CategoryFltr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CategoryFltr.Focused == true)
+            { 
+                tBooksBindingSource.Filter = "Category = " + (int)(CategoryFltr.SelectedValue); 
+            }
+        }
+
+        private void SeriesFltr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SeriesFltr.Focused == true)
+            {
+                tBooksBindingSource.Filter = "Series LIKE '" + SeriesFltr.SelectedValue + "'";
+            }
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SeriesFltr_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void findSeriesToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tBooksTableAdapter.FindSeries(this.booksDataSet.TBooks);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void findSeriesToolStripButton_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                this.tBooksTableAdapter.FindSeries(this.booksDataSet.TBooks);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

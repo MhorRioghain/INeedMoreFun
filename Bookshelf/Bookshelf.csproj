@@ -55,6 +55,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BooksDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Categories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Categories.Designer.cs">
+      <DependentUpon>Categories.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,34 @@
     <Content Include="Books.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\checkmark.png" />
+    <None Include="Resources\zoom.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\rel2.png" />
+    <None Include="Resources\rel.png" />
+    <None Include="Resources\first.png" />
+    <None Include="Resources\last.png" />
+    <None Include="Resources\reload %281%29.png" />
+    <None Include="Resources\diskette %281%29.png" />
+    <None Include="Resources\add %282%29.png" />
+    <None Include="Resources\right %281%29.png" />
+    <None Include="Resources\close %281%29.png" />
+    <None Include="Resources\left %281%29.png" />
+    <None Include="Resources\стрелка.png" />
+    <None Include="Resources\add %281%29.png" />
+    <None Include="Resources\diskette.png" />
+    <None Include="Resources\right.png" />
+    <None Include="Resources\reload.png" />
+    <None Include="Resources\left.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\check-mark-2180770_960_720.png" />
+    <None Include="Resources\button.png" />
+    <None Include="Resources\arrow.png" />
+    <None Include="Resources\arrow %282%29.png" />
+    <None Include="Resources\arrow %281%29.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\240px-White_X_in_red_background.svg.png" />
+    <None Include="Resources\01refresh.png" />
     <None Include="Resources\starhalffull.png" />
     <None Include="Resources\starfull.png" />
     <None Include="Resources\starempty.png" />

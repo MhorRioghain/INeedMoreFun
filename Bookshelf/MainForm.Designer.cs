@@ -32,6 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Menu = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.booksDataSet = new Bookshelf.BooksDataSet();
             this.tBooksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tBooksTableAdapter = new Bookshelf.BooksDataSetTableAdapters.TBooksTableAdapter();
@@ -50,6 +53,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tBooksBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.UpdateTable = new System.Windows.Forms.ToolStripButton();
             this.tBooksDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,19 +66,26 @@
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FavouriteUncheck = new System.Windows.Forms.Button();
-            this.SeriesFltr = new System.Windows.Forms.ComboBox();
+            this.tBooksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.CategoryFltr = new System.Windows.Forms.ComboBox();
-            this.AuthorBtn = new System.Windows.Forms.Button();
+            this.SeriesFltr = new System.Windows.Forms.ComboBox();
+            this.AuthorFilter = new System.Windows.Forms.Button();
+            this.TitleFilter = new System.Windows.Forms.Button();
+            this.FavouriteUncheck = new System.Windows.Forms.Button();
             this.ShowAll = new System.Windows.Forms.Button();
-            this.TitleBtn = new System.Windows.Forms.Button();
             this.FilterBox = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.FavouriteAll = new System.Windows.Forms.Button();
             this.FavouriteCheck = new System.Windows.Forms.Button();
+            this.FavouriteAll = new System.Windows.Forms.Button();
+            this.Read = new System.Windows.Forms.Button();
+            this.Unread = new System.Windows.Forms.Button();
+            this.Un_Read = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource)).BeginInit();
@@ -82,16 +93,20 @@
             this.tBooksBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCategoriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Menu
             // 
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripButton4});
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(1460, 25);
+            this.Menu.Size = new System.Drawing.Size(1507, 25);
             this.Menu.TabIndex = 0;
             this.Menu.Text = "toolStrip1";
             // 
@@ -104,6 +119,34 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // booksDataSet
             // 
@@ -149,7 +192,8 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.tBooksBindingNavigatorSaveItem});
+            this.tBooksBindingNavigatorSaveItem,
+            this.UpdateTable});
             this.tBooksBindingNavigator.Location = new System.Drawing.Point(0, 25);
             this.tBooksBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.tBooksBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -157,14 +201,14 @@
             this.tBooksBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.tBooksBindingNavigator.Name = "tBooksBindingNavigator";
             this.tBooksBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.tBooksBindingNavigator.Size = new System.Drawing.Size(1460, 27);
+            this.tBooksBindingNavigator.Size = new System.Drawing.Size(1507, 27);
             this.tBooksBindingNavigator.TabIndex = 1;
             this.tBooksBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Image = global::Bookshelf.Properties.Resources.add__2_;
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 24);
@@ -180,7 +224,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Image = global::Bookshelf.Properties.Resources.close__1_;
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 24);
@@ -189,7 +233,7 @@
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Image = global::Bookshelf.Properties.Resources.first;
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 24);
@@ -198,7 +242,7 @@
             // bindingNavigatorMovePreviousItem
             // 
             this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Image = global::Bookshelf.Properties.Resources.left__1_;
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 24);
@@ -226,7 +270,7 @@
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Image = global::Bookshelf.Properties.Resources.right__1_;
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 24);
@@ -235,7 +279,7 @@
             // bindingNavigatorMoveLastItem
             // 
             this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Image = global::Bookshelf.Properties.Resources.last;
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 24);
@@ -249,11 +293,21 @@
             // tBooksBindingNavigatorSaveItem
             // 
             this.tBooksBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tBooksBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("tBooksBindingNavigatorSaveItem.Image")));
+            this.tBooksBindingNavigatorSaveItem.Image = global::Bookshelf.Properties.Resources.diskette__1_;
             this.tBooksBindingNavigatorSaveItem.Name = "tBooksBindingNavigatorSaveItem";
             this.tBooksBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 24);
             this.tBooksBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.tBooksBindingNavigatorSaveItem.Click += new System.EventHandler(this.tBooksBindingNavigatorSaveItem_Click_1);
+            // 
+            // UpdateTable
+            // 
+            this.UpdateTable.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.UpdateTable.Image = global::Bookshelf.Properties.Resources.rel;
+            this.UpdateTable.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.UpdateTable.Name = "UpdateTable";
+            this.UpdateTable.Size = new System.Drawing.Size(23, 24);
+            this.UpdateTable.Text = "toolStripButton2";
+            this.UpdateTable.Click += new System.EventHandler(this.UpdateTable_Click);
             // 
             // tBooksDataGridView
             // 
@@ -277,7 +331,7 @@
             this.tBooksDataGridView.Location = new System.Drawing.Point(0, 55);
             this.tBooksDataGridView.Name = "tBooksDataGridView";
             this.tBooksDataGridView.RowTemplate.Height = 24;
-            this.tBooksDataGridView.Size = new System.Drawing.Size(1172, 433);
+            this.tBooksDataGridView.Size = new System.Drawing.Size(1180, 724);
             this.tBooksDataGridView.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -359,136 +413,89 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.Width = 200;
             // 
+            // tBooksBindingSource1
+            // 
+            this.tBooksBindingSource1.DataMember = "TBooks";
+            this.tBooksBindingSource1.DataSource = this.booksDataSet;
+            // 
+            // CategoryFltr
+            // 
+            this.CategoryFltr.DataSource = this.tCategoriesBindingSource;
+            this.CategoryFltr.DisplayMember = "Category";
+            this.CategoryFltr.FormattingEnabled = true;
+            this.CategoryFltr.Location = new System.Drawing.Point(43, 170);
+            this.CategoryFltr.Name = "CategoryFltr";
+            this.CategoryFltr.Size = new System.Drawing.Size(199, 24);
+            this.CategoryFltr.TabIndex = 41;
+            this.CategoryFltr.ValueMember = "Id";
+            this.CategoryFltr.SelectedIndexChanged += new System.EventHandler(this.CategoryFltr_SelectedIndexChanged);
+            // 
+            // SeriesFltr
+            // 
+            this.SeriesFltr.DataSource = this.tBooksBindingSource1;
+            this.SeriesFltr.DisplayMember = "Series";
+            this.SeriesFltr.FormattingEnabled = true;
+            this.SeriesFltr.Location = new System.Drawing.Point(46, 232);
+            this.SeriesFltr.Name = "SeriesFltr";
+            this.SeriesFltr.Size = new System.Drawing.Size(199, 24);
+            this.SeriesFltr.TabIndex = 42;
+            this.SeriesFltr.ValueMember = "Series";
+            this.SeriesFltr.SelectedIndexChanged += new System.EventHandler(this.SeriesFltr_SelectedIndexChanged);
+            this.SeriesFltr.Click += new System.EventHandler(this.SeriesFltr_Click);
+            // 
+            // AuthorFilter
+            // 
+            this.AuthorFilter.Image = global::Bookshelf.Properties.Resources.zoom;
+            this.AuthorFilter.Location = new System.Drawing.Point(142, 100);
+            this.AuthorFilter.Name = "AuthorFilter";
+            this.AuthorFilter.Size = new System.Drawing.Size(125, 30);
+            this.AuthorFilter.TabIndex = 40;
+            this.AuthorFilter.Text = "по автору";
+            this.AuthorFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AuthorFilter.UseVisualStyleBackColor = true;
+            this.AuthorFilter.Click += new System.EventHandler(this.AuthorFilter_Click);
+            // 
+            // TitleFilter
+            // 
+            this.TitleFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.TitleFilter.Image = global::Bookshelf.Properties.Resources.zoom;
+            this.TitleFilter.Location = new System.Drawing.Point(11, 100);
+            this.TitleFilter.Name = "TitleFilter";
+            this.TitleFilter.Size = new System.Drawing.Size(125, 30);
+            this.TitleFilter.TabIndex = 38;
+            this.TitleFilter.Text = "по названию";
+            this.TitleFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.TitleFilter.UseVisualStyleBackColor = true;
+            this.TitleFilter.Click += new System.EventHandler(this.TitleFilter_Click);
+            // 
             // FavouriteUncheck
             // 
             this.FavouriteUncheck.BackgroundImage = global::Bookshelf.Properties.Resources.starempty;
             this.FavouriteUncheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.FavouriteUncheck.FlatAppearance.BorderSize = 0;
             this.FavouriteUncheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FavouriteUncheck.Location = new System.Drawing.Point(22, 361);
+            this.FavouriteUncheck.Location = new System.Drawing.Point(55, 400);
             this.FavouriteUncheck.Name = "FavouriteUncheck";
             this.FavouriteUncheck.Size = new System.Drawing.Size(44, 44);
             this.FavouriteUncheck.TabIndex = 46;
             this.FavouriteUncheck.UseVisualStyleBackColor = true;
             // 
-            // SeriesFltr
-            // 
-            this.SeriesFltr.FormattingEnabled = true;
-            this.SeriesFltr.Location = new System.Drawing.Point(13, 203);
-            this.SeriesFltr.Name = "SeriesFltr";
-            this.SeriesFltr.Size = new System.Drawing.Size(199, 24);
-            this.SeriesFltr.TabIndex = 42;
-            // 
-            // CategoryFltr
-            // 
-            this.CategoryFltr.FormattingEnabled = true;
-            this.CategoryFltr.Location = new System.Drawing.Point(13, 173);
-            this.CategoryFltr.Name = "CategoryFltr";
-            this.CategoryFltr.Size = new System.Drawing.Size(199, 24);
-            this.CategoryFltr.TabIndex = 41;
-            // 
-            // AuthorBtn
-            // 
-            this.AuthorBtn.Location = new System.Drawing.Point(111, 60);
-            this.AuthorBtn.Name = "AuthorBtn";
-            this.AuthorBtn.Size = new System.Drawing.Size(92, 50);
-            this.AuthorBtn.TabIndex = 40;
-            this.AuthorBtn.Text = "Фильтр по автору";
-            this.AuthorBtn.UseVisualStyleBackColor = true;
-            // 
             // ShowAll
             // 
-            this.ShowAll.Location = new System.Drawing.Point(111, 126);
+            this.ShowAll.Location = new System.Drawing.Point(84, 481);
             this.ShowAll.Name = "ShowAll";
             this.ShowAll.Size = new System.Drawing.Size(109, 37);
             this.ShowAll.TabIndex = 39;
             this.ShowAll.Text = "Показать всё";
             this.ShowAll.UseVisualStyleBackColor = true;
-            // 
-            // TitleBtn
-            // 
-            this.TitleBtn.Location = new System.Drawing.Point(13, 60);
-            this.TitleBtn.Name = "TitleBtn";
-            this.TitleBtn.Size = new System.Drawing.Size(92, 50);
-            this.TitleBtn.TabIndex = 38;
-            this.TitleBtn.Text = "Фильтр по названию";
-            this.TitleBtn.UseVisualStyleBackColor = true;
-            this.TitleBtn.Click += new System.EventHandler(this.TitleBtn_Click);
+            this.ShowAll.Click += new System.EventHandler(this.ShowAll_Click);
             // 
             // FilterBox
             // 
-            this.FilterBox.Location = new System.Drawing.Point(13, 32);
+            this.FilterBox.Location = new System.Drawing.Point(46, 72);
             this.FilterBox.Name = "FilterBox";
             this.FilterBox.Size = new System.Drawing.Size(190, 22);
             this.FilterBox.TabIndex = 37;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.FavouriteAll);
-            this.panel1.Controls.Add(this.FavouriteCheck);
-            this.panel1.Controls.Add(this.FilterBox);
-            this.panel1.Controls.Add(this.ShowAll);
-            this.panel1.Controls.Add(this.FavouriteUncheck);
-            this.panel1.Controls.Add(this.TitleBtn);
-            this.panel1.Controls.Add(this.AuthorBtn);
-            this.panel1.Controls.Add(this.SeriesFltr);
-            this.panel1.Controls.Add(this.CategoryFltr);
-            this.panel1.Location = new System.Drawing.Point(1203, 55);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(245, 420);
-            this.panel1.TabIndex = 49;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = global::Bookshelf.Properties.Resources.half;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(144, 311);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(44, 44);
-            this.button3.TabIndex = 51;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = global::Bookshelf.Properties.Resources.green_tick;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(83, 311);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(44, 44);
-            this.button2.TabIndex = 50;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(22, 311);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(44, 44);
-            this.button1.TabIndex = 49;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // FavouriteAll
-            // 
-            this.FavouriteAll.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FavouriteAll.BackgroundImage")));
-            this.FavouriteAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.FavouriteAll.FlatAppearance.BorderSize = 0;
-            this.FavouriteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FavouriteAll.Location = new System.Drawing.Point(144, 361);
-            this.FavouriteAll.Name = "FavouriteAll";
-            this.FavouriteAll.Size = new System.Drawing.Size(44, 44);
-            this.FavouriteAll.TabIndex = 48;
-            this.FavouriteAll.UseVisualStyleBackColor = true;
             // 
             // FavouriteCheck
             // 
@@ -496,25 +503,152 @@
             this.FavouriteCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.FavouriteCheck.FlatAppearance.BorderSize = 0;
             this.FavouriteCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FavouriteCheck.Location = new System.Drawing.Point(83, 361);
+            this.FavouriteCheck.Location = new System.Drawing.Point(115, 400);
             this.FavouriteCheck.Name = "FavouriteCheck";
             this.FavouriteCheck.Size = new System.Drawing.Size(44, 44);
             this.FavouriteCheck.TabIndex = 47;
             this.FavouriteCheck.UseVisualStyleBackColor = true;
             // 
+            // FavouriteAll
+            // 
+            this.FavouriteAll.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FavouriteAll.BackgroundImage")));
+            this.FavouriteAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.FavouriteAll.FlatAppearance.BorderSize = 0;
+            this.FavouriteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FavouriteAll.Location = new System.Drawing.Point(176, 400);
+            this.FavouriteAll.Name = "FavouriteAll";
+            this.FavouriteAll.Size = new System.Drawing.Size(44, 44);
+            this.FavouriteAll.TabIndex = 48;
+            this.FavouriteAll.UseVisualStyleBackColor = true;
+            // 
+            // Read
+            // 
+            this.Read.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
+            this.Read.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Read.FlatAppearance.BorderSize = 0;
+            this.Read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Read.Location = new System.Drawing.Point(55, 312);
+            this.Read.Name = "Read";
+            this.Read.Size = new System.Drawing.Size(44, 44);
+            this.Read.TabIndex = 49;
+            this.Read.UseVisualStyleBackColor = true;
+            // 
+            // Unread
+            // 
+            this.Unread.BackgroundImage = global::Bookshelf.Properties.Resources.green_tick;
+            this.Unread.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Unread.FlatAppearance.BorderSize = 0;
+            this.Unread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Unread.Location = new System.Drawing.Point(116, 312);
+            this.Unread.Name = "Unread";
+            this.Unread.Size = new System.Drawing.Size(44, 44);
+            this.Unread.TabIndex = 50;
+            this.Unread.UseVisualStyleBackColor = true;
+            // 
+            // Un_Read
+            // 
+            this.Un_Read.BackgroundImage = global::Bookshelf.Properties.Resources.half;
+            this.Un_Read.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Un_Read.FlatAppearance.BorderSize = 0;
+            this.Un_Read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Un_Read.Location = new System.Drawing.Point(177, 312);
+            this.Un_Read.Name = "Un_Read";
+            this.Un_Read.Size = new System.Drawing.Size(44, 44);
+            this.Un_Read.TabIndex = 51;
+            this.Un_Read.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(65, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 18);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Поиск и фильтры";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(213, 17);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "Поиск по названию или автору";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(43, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 17);
+            this.label3.TabIndex = 54;
+            this.label3.Text = "Фильтр по категории";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(46, 212);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 17);
+            this.label4.TabIndex = 55;
+            this.label4.Text = "Фильтр по серии";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(65, 283);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(155, 17);
+            this.label5.TabIndex = 56;
+            this.label5.Text = "Фильтр прочитанного";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(72, 380);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 17);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "Фильтр избранного";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.Un_Read);
+            this.panel1.Controls.Add(this.Unread);
+            this.panel1.Controls.Add(this.Read);
+            this.panel1.Controls.Add(this.FavouriteAll);
+            this.panel1.Controls.Add(this.FavouriteCheck);
+            this.panel1.Controls.Add(this.FilterBox);
+            this.panel1.Controls.Add(this.ShowAll);
+            this.panel1.Controls.Add(this.FavouriteUncheck);
+            this.panel1.Controls.Add(this.TitleFilter);
+            this.panel1.Controls.Add(this.AuthorFilter);
+            this.panel1.Controls.Add(this.SeriesFltr);
+            this.panel1.Controls.Add(this.CategoryFltr);
+            this.panel1.Location = new System.Drawing.Point(1199, 55);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(296, 601);
+            this.panel1.TabIndex = 49;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1460, 487);
+            this.ClientSize = new System.Drawing.Size(1507, 782);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tBooksDataGridView);
             this.Controls.Add(this.tBooksBindingNavigator);
             this.Controls.Add(this.Menu);
             this.Name = "MainForm";
             this.Text = "Form1";
-            this.Activated += new System.EventHandler(this.MainForm_Activated);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.Menu.ResumeLayout(false);
             this.Menu.PerformLayout();
@@ -525,6 +659,7 @@
             this.tBooksBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCategoriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -565,20 +700,31 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.Button FavouriteUncheck;
-        private System.Windows.Forms.ComboBox SeriesFltr;
-        private System.Windows.Forms.ComboBox CategoryFltr;
-        private System.Windows.Forms.Button AuthorBtn;
-        private System.Windows.Forms.Button ShowAll;
-        private System.Windows.Forms.Button TitleBtn;
-        private System.Windows.Forms.TextBox FilterBox;
-        private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.DataGridView tBooksDataGridView;
-        private System.Windows.Forms.Button FavouriteAll;
+        private System.Windows.Forms.ToolStripButton UpdateTable;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.BindingSource tBooksBindingSource1;
+        private System.Windows.Forms.ComboBox CategoryFltr;
+        private System.Windows.Forms.ComboBox SeriesFltr;
+        private System.Windows.Forms.Button AuthorFilter;
+        private System.Windows.Forms.Button TitleFilter;
+        private System.Windows.Forms.Button FavouriteUncheck;
+        private System.Windows.Forms.Button ShowAll;
+        private System.Windows.Forms.TextBox FilterBox;
         private System.Windows.Forms.Button FavouriteCheck;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button FavouriteAll;
+        private System.Windows.Forms.Button Read;
+        private System.Windows.Forms.Button Unread;
+        private System.Windows.Forms.Button Un_Read;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

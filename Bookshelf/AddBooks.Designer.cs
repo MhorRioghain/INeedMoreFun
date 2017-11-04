@@ -632,7 +632,6 @@
             this.Controls.Add(this.tBooksBindingNavigator);
             this.Name = "AddBooks";
             this.Text = "AddBooks";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddBooks_FormClosed);
             this.Load += new System.EventHandler(this.AddBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource)).EndInit();
