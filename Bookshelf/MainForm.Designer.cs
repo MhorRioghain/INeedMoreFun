@@ -30,7 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.Menu = new System.Windows.Forms.ToolStrip();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.MainMenu = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -55,20 +56,10 @@
             this.tBooksBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.UpdateTable = new System.Windows.Forms.ToolStripButton();
             this.tBooksDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tCategoriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tBooksBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.CategoryFltr = new System.Windows.Forms.ComboBox();
             this.SeriesFltr = new System.Windows.Forms.ComboBox();
+            this.tSeriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AuthorFilter = new System.Windows.Forms.Button();
             this.TitleFilter = new System.Windows.Forms.Button();
             this.FavouriteUncheck = new System.Windows.Forms.Button();
@@ -86,29 +77,44 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Menu.SuspendLayout();
+            this.tSeriesTableAdapter = new Bookshelf.BooksDataSetTableAdapters.TSeriesTableAdapter();
+            this.tShelfBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tShelfTableAdapter = new Bookshelf.BooksDataSetTableAdapters.TShelfTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.OpenBook = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.MainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingNavigator)).BeginInit();
             this.tBooksBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCategoriesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSeriesBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tShelfBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // Menu
+            // MainMenu
             // 
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3,
             this.toolStripButton4});
-            this.Menu.Location = new System.Drawing.Point(0, 0);
-            this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(1507, 25);
-            this.Menu.TabIndex = 0;
-            this.Menu.Text = "toolStrip1";
+            this.MainMenu.Location = new System.Drawing.Point(0, 0);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(1507, 25);
+            this.MainMenu.TabIndex = 0;
+            this.MainMenu.Text = "toolStrip1";
             // 
             // toolStripButton1
             // 
@@ -167,6 +173,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.TBooksTableAdapter = this.tBooksTableAdapter;
             this.tableAdapterManager.TCategoriesTableAdapter = this.tCategoriesTableAdapter;
+            this.tableAdapterManager.TSeriesTableAdapter = null;
             this.tableAdapterManager.TShelfTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Bookshelf.BooksDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
@@ -208,7 +215,7 @@
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = global::Bookshelf.Properties.Resources.add__2_;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 24);
@@ -224,7 +231,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = global::Bookshelf.Properties.Resources.close__1_;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 24);
@@ -242,7 +249,7 @@
             // bindingNavigatorMovePreviousItem
             // 
             this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = global::Bookshelf.Properties.Resources.left__1_;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 24);
@@ -270,7 +277,7 @@
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = global::Bookshelf.Properties.Resources.right__1_;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 24);
@@ -293,7 +300,7 @@
             // tBooksBindingNavigatorSaveItem
             // 
             this.tBooksBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tBooksBindingNavigatorSaveItem.Image = global::Bookshelf.Properties.Resources.diskette__1_;
+            this.tBooksBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("tBooksBindingNavigatorSaveItem.Image")));
             this.tBooksBindingNavigatorSaveItem.Name = "tBooksBindingNavigatorSaveItem";
             this.tBooksBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 24);
             this.tBooksBindingNavigatorSaveItem.Text = "Сохранить данные";
@@ -315,6 +322,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tBooksDataGridView.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tBooksDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.tBooksDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tBooksDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -326,97 +341,22 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewCheckBoxColumn1,
             this.dataGridViewCheckBoxColumn2,
-            this.dataGridViewTextBoxColumn8});
+            this.dataGridViewTextBoxColumn8,
+            this.OpenBook});
             this.tBooksDataGridView.DataSource = this.tBooksBindingSource;
             this.tBooksDataGridView.Location = new System.Drawing.Point(0, 55);
             this.tBooksDataGridView.Name = "tBooksDataGridView";
+            this.tBooksDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tBooksDataGridView.RowTemplate.Height = 24;
-            this.tBooksDataGridView.Size = new System.Drawing.Size(1180, 724);
+            this.tBooksDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.tBooksDataGridView.Size = new System.Drawing.Size(1180, 611);
             this.tBooksDataGridView.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Title";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Title";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Author";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Author";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Category";
-            this.dataGridViewTextBoxColumn4.DataSource = this.tCategoriesBindingSource;
-            this.dataGridViewTextBoxColumn4.DisplayMember = "Category";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Category";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn4.ValueMember = "Id";
-            this.dataGridViewTextBoxColumn4.Width = 130;
+            this.tBooksDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tBooksDataGridView_CellContentClick);
             // 
             // tCategoriesBindingSource
             // 
             this.tCategoriesBindingSource.DataMember = "TCategories";
             this.tCategoriesBindingSource.DataSource = this.booksDataSet;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Series";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Series";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "SeriesNumber";
-            this.dataGridViewTextBoxColumn6.HeaderText = "SeriesNumber";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "TableOfContents";
-            this.dataGridViewTextBoxColumn7.HeaderText = "TableOfContents";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 200;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsRead";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "IsRead";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            this.dataGridViewCheckBoxColumn1.Width = 40;
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "IsFavourite";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "IsFavourite";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.Width = 40;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Shelf";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Shelf";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 200;
-            // 
-            // tBooksBindingSource1
-            // 
-            this.tBooksBindingSource1.DataMember = "TBooks";
-            this.tBooksBindingSource1.DataSource = this.booksDataSet;
             // 
             // CategoryFltr
             // 
@@ -432,21 +372,25 @@
             // 
             // SeriesFltr
             // 
-            this.SeriesFltr.DataSource = this.tBooksBindingSource1;
+            this.SeriesFltr.DataSource = this.tSeriesBindingSource;
             this.SeriesFltr.DisplayMember = "Series";
             this.SeriesFltr.FormattingEnabled = true;
-            this.SeriesFltr.Location = new System.Drawing.Point(46, 232);
+            this.SeriesFltr.Location = new System.Drawing.Point(43, 232);
             this.SeriesFltr.Name = "SeriesFltr";
-            this.SeriesFltr.Size = new System.Drawing.Size(199, 24);
+            this.SeriesFltr.Size = new System.Drawing.Size(198, 24);
             this.SeriesFltr.TabIndex = 42;
             this.SeriesFltr.ValueMember = "Series";
             this.SeriesFltr.SelectedIndexChanged += new System.EventHandler(this.SeriesFltr_SelectedIndexChanged);
-            this.SeriesFltr.Click += new System.EventHandler(this.SeriesFltr_Click);
+            // 
+            // tSeriesBindingSource
+            // 
+            this.tSeriesBindingSource.DataMember = "TSeries";
+            this.tSeriesBindingSource.DataSource = this.booksDataSet;
             // 
             // AuthorFilter
             // 
             this.AuthorFilter.Image = global::Bookshelf.Properties.Resources.zoom;
-            this.AuthorFilter.Location = new System.Drawing.Point(142, 100);
+            this.AuthorFilter.Location = new System.Drawing.Point(151, 100);
             this.AuthorFilter.Name = "AuthorFilter";
             this.AuthorFilter.Size = new System.Drawing.Size(125, 30);
             this.AuthorFilter.TabIndex = 40;
@@ -459,7 +403,7 @@
             // 
             this.TitleFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.TitleFilter.Image = global::Bookshelf.Properties.Resources.zoom;
-            this.TitleFilter.Location = new System.Drawing.Point(11, 100);
+            this.TitleFilter.Location = new System.Drawing.Point(20, 100);
             this.TitleFilter.Name = "TitleFilter";
             this.TitleFilter.Size = new System.Drawing.Size(125, 30);
             this.TitleFilter.TabIndex = 38;
@@ -479,6 +423,7 @@
             this.FavouriteUncheck.Size = new System.Drawing.Size(44, 44);
             this.FavouriteUncheck.TabIndex = 46;
             this.FavouriteUncheck.UseVisualStyleBackColor = true;
+            this.FavouriteUncheck.Click += new System.EventHandler(this.FavouriteUncheck_Click);
             // 
             // ShowAll
             // 
@@ -508,6 +453,7 @@
             this.FavouriteCheck.Size = new System.Drawing.Size(44, 44);
             this.FavouriteCheck.TabIndex = 47;
             this.FavouriteCheck.UseVisualStyleBackColor = true;
+            this.FavouriteCheck.Click += new System.EventHandler(this.FavouriteCheck_Click);
             // 
             // FavouriteAll
             // 
@@ -520,10 +466,11 @@
             this.FavouriteAll.Size = new System.Drawing.Size(44, 44);
             this.FavouriteAll.TabIndex = 48;
             this.FavouriteAll.UseVisualStyleBackColor = true;
+            this.FavouriteAll.Click += new System.EventHandler(this.FavouriteAll_Click);
             // 
             // Read
             // 
-            this.Read.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
+            this.Read.BackgroundImage = global::Bookshelf.Properties.Resources.green_tick;
             this.Read.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Read.FlatAppearance.BorderSize = 0;
             this.Read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -532,10 +479,11 @@
             this.Read.Size = new System.Drawing.Size(44, 44);
             this.Read.TabIndex = 49;
             this.Read.UseVisualStyleBackColor = true;
+            this.Read.Click += new System.EventHandler(this.Read_Click);
             // 
             // Unread
             // 
-            this.Unread.BackgroundImage = global::Bookshelf.Properties.Resources.green_tick;
+            this.Unread.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
             this.Unread.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Unread.FlatAppearance.BorderSize = 0;
             this.Unread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -544,6 +492,7 @@
             this.Unread.Size = new System.Drawing.Size(44, 44);
             this.Unread.TabIndex = 50;
             this.Unread.UseVisualStyleBackColor = true;
+            this.Unread.Click += new System.EventHandler(this.Unread_Click);
             // 
             // Un_Read
             // 
@@ -556,11 +505,12 @@
             this.Un_Read.Size = new System.Drawing.Size(44, 44);
             this.Un_Read.TabIndex = 51;
             this.Un_Read.UseVisualStyleBackColor = true;
+            this.Un_Read.Click += new System.EventHandler(this.Un_Read_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(65, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 18);
@@ -588,7 +538,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 212);
+            this.label4.Location = new System.Drawing.Point(43, 212);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 17);
             this.label4.TabIndex = 55;
@@ -638,20 +588,125 @@
             this.panel1.Size = new System.Drawing.Size(296, 601);
             this.panel1.TabIndex = 49;
             // 
+            // tSeriesTableAdapter
+            // 
+            this.tSeriesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tShelfBindingSource
+            // 
+            this.tShelfBindingSource.DataMember = "TShelf";
+            this.tShelfBindingSource.DataSource = this.booksDataSet;
+            // 
+            // tShelfTableAdapter
+            // 
+            this.tShelfTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "№";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Title";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Author";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Автор";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Category";
+            this.dataGridViewTextBoxColumn4.DataSource = this.tCategoriesBindingSource;
+            this.dataGridViewTextBoxColumn4.DisplayMember = "Category";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Категория";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn4.ValueMember = "Id";
+            this.dataGridViewTextBoxColumn4.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Series";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Серия";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.Width = 120;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "SeriesNumber";
+            this.dataGridViewTextBoxColumn6.HeaderText = "№ в серии";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "TableOfContents";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Содержание";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 190;
+            // 
+            // dataGridViewCheckBoxColumn1
+            // 
+            this.dataGridViewCheckBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewCheckBoxColumn1.DataPropertyName = "IsRead";
+            this.dataGridViewCheckBoxColumn1.HeaderText = "Проч.";
+            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.dataGridViewCheckBoxColumn1.Width = 50;
+            // 
+            // dataGridViewCheckBoxColumn2
+            // 
+            this.dataGridViewCheckBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.dataGridViewCheckBoxColumn2.DataPropertyName = "IsFavourite";
+            this.dataGridViewCheckBoxColumn2.HeaderText = "Избр.";
+            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
+            this.dataGridViewCheckBoxColumn2.Width = 49;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Shelf";
+            this.dataGridViewTextBoxColumn8.DataSource = this.tShelfBindingSource;
+            this.dataGridViewTextBoxColumn8.DisplayMember = "Place";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Полка";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn8.ValueMember = "Id";
+            this.dataGridViewTextBoxColumn8.Width = 150;
+            // 
+            // OpenBook
+            // 
+            this.OpenBook.HeaderText = "Открыть книгу";
+            this.OpenBook.Name = "OpenBook";
+            this.OpenBook.Text = "Открыть";
+            this.OpenBook.UseColumnTextForButtonValue = true;
+            this.OpenBook.Width = 80;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1507, 782);
+            this.ClientSize = new System.Drawing.Size(1507, 669);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tBooksDataGridView);
             this.Controls.Add(this.tBooksBindingNavigator);
-            this.Controls.Add(this.Menu);
+            this.Controls.Add(this.MainMenu);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.Menu.ResumeLayout(false);
-            this.Menu.PerformLayout();
+            this.MainMenu.ResumeLayout(false);
+            this.MainMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingNavigator)).EndInit();
@@ -659,9 +714,10 @@
             this.tBooksBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tCategoriesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tSeriesBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tShelfBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -669,7 +725,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip Menu;
+        private System.Windows.Forms.ToolStrip MainMenu;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private BooksDataSet booksDataSet;
         private System.Windows.Forms.BindingSource tBooksBindingSource;
@@ -690,22 +746,11 @@
         private System.Windows.Forms.ToolStripButton tBooksBindingNavigatorSaveItem;
         private BooksDataSetTableAdapters.TCategoriesTableAdapter tCategoriesTableAdapter;
         private System.Windows.Forms.BindingSource tCategoriesBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         public System.Windows.Forms.DataGridView tBooksDataGridView;
         private System.Windows.Forms.ToolStripButton UpdateTable;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.BindingSource tBooksBindingSource1;
         private System.Windows.Forms.ComboBox CategoryFltr;
         private System.Windows.Forms.ComboBox SeriesFltr;
         private System.Windows.Forms.Button AuthorFilter;
@@ -725,6 +770,21 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.BindingSource tSeriesBindingSource;
+        private BooksDataSetTableAdapters.TSeriesTableAdapter tSeriesTableAdapter;
+        private System.Windows.Forms.BindingSource tShelfBindingSource;
+        private BooksDataSetTableAdapters.TShelfTableAdapter tShelfTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewButtonColumn OpenBook;
     }
 }
 

@@ -44,11 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddBooks.cs">
+    <Compile Include="AddBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddBooks.Designer.cs">
-      <DependentUpon>AddBooks.cs</DependentUpon>
+    <Compile Include="AddBook.Designer.cs">
+      <DependentUpon>AddBook.cs</DependentUpon>
     </Compile>
     <Compile Include="BooksDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -69,10 +69,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddBooks.resx">
-      <DependentUpon>AddBooks.cs</DependentUpon>
+    <Compile Include="Series.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Series.Designer.cs">
+      <DependentUpon>Series.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShowBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowBook.Designer.cs">
+      <DependentUpon>ShowBook.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddBook.resx">
+      <DependentUpon>AddBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.ru.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -85,13 +100,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Series.resx">
+      <DependentUpon>Series.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowBook.resx">
+      <DependentUpon>ShowBook.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="BooksDataSet.xsc">
       <DependentUpon>BooksDataSet.xsd</DependentUpon>
     </None>
     <None Include="BooksDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BooksDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>BooksDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Include="BooksDataSet.xss">
       <DependentUpon>BooksDataSet.xsd</DependentUpon>
