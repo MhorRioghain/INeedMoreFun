@@ -36,9 +36,9 @@
             System.Windows.Forms.Label seriesLabel;
             System.Windows.Forms.Label seriesNumberLabel;
             System.Windows.Forms.Label tableOfContentsLabel;
-            System.Windows.Forms.Label isReadLabel;
-            System.Windows.Forms.Label isFavouriteLabel;
             System.Windows.Forms.Label shelfLabel;
+            System.Windows.Forms.Label isFavouriteLabel;
+            System.Windows.Forms.Label isReadLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBook));
             this.booksDataSet = new Bookshelf.BooksDataSet();
             this.tBooksBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -73,21 +73,15 @@
             this.shComboBox = new System.Windows.Forms.ComboBox();
             this.tShelfBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tShelfTableAdapter = new Bookshelf.BooksDataSetTableAdapters.TShelfTableAdapter();
-            this.FilterBox = new System.Windows.Forms.TextBox();
-            this.TitleBtn = new System.Windows.Forms.Button();
-            this.ShowAll = new System.Windows.Forms.Button();
-            this.AuthorBtn = new System.Windows.Forms.Button();
-            this.CategoryFltr = new System.Windows.Forms.ComboBox();
-            this.SeriesFltr = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
             this.seriesComboBox = new System.Windows.Forms.ComboBox();
             this.tSeriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tSeriesTableAdapter = new Bookshelf.BooksDataSetTableAdapters.TSeriesTableAdapter();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.AddButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             idLabel = new System.Windows.Forms.Label();
             titleLabel = new System.Windows.Forms.Label();
             authorLabel = new System.Windows.Forms.Label();
@@ -95,9 +89,9 @@
             seriesLabel = new System.Windows.Forms.Label();
             seriesNumberLabel = new System.Windows.Forms.Label();
             tableOfContentsLabel = new System.Windows.Forms.Label();
-            isReadLabel = new System.Windows.Forms.Label();
-            isFavouriteLabel = new System.Windows.Forms.Label();
             shelfLabel = new System.Windows.Forms.Label();
+            isFavouriteLabel = new System.Windows.Forms.Label();
+            isReadLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingNavigator)).BeginInit();
@@ -106,97 +100,98 @@
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tShelfBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSeriesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(120, 73);
+            idLabel.Location = new System.Drawing.Point(68, 65);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(23, 17);
+            idLabel.Size = new System.Drawing.Size(26, 17);
             idLabel.TabIndex = 1;
-            idLabel.Text = "id:";
+            idLabel.Text = "№:";
             // 
             // titleLabel
             // 
             titleLabel.AutoSize = true;
-            titleLabel.Location = new System.Drawing.Point(120, 101);
+            titleLabel.Location = new System.Drawing.Point(25, 93);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new System.Drawing.Size(39, 17);
+            titleLabel.Size = new System.Drawing.Size(76, 17);
             titleLabel.TabIndex = 3;
-            titleLabel.Text = "Title:";
+            titleLabel.Text = "Название:";
             // 
             // authorLabel
             // 
             authorLabel.AutoSize = true;
-            authorLabel.Location = new System.Drawing.Point(120, 129);
+            authorLabel.Location = new System.Drawing.Point(25, 121);
             authorLabel.Name = "authorLabel";
-            authorLabel.Size = new System.Drawing.Size(54, 17);
+            authorLabel.Size = new System.Drawing.Size(51, 17);
             authorLabel.TabIndex = 5;
-            authorLabel.Text = "Author:";
+            authorLabel.Text = "Автор:";
             // 
             // categoryLabel
             // 
             categoryLabel.AutoSize = true;
-            categoryLabel.Location = new System.Drawing.Point(120, 157);
+            categoryLabel.Location = new System.Drawing.Point(25, 149);
             categoryLabel.Name = "categoryLabel";
-            categoryLabel.Size = new System.Drawing.Size(69, 17);
+            categoryLabel.Size = new System.Drawing.Size(81, 17);
             categoryLabel.TabIndex = 7;
-            categoryLabel.Text = "Category:";
+            categoryLabel.Text = "Категория:";
             // 
             // seriesLabel
             // 
             seriesLabel.AutoSize = true;
-            seriesLabel.Location = new System.Drawing.Point(120, 188);
+            seriesLabel.Location = new System.Drawing.Point(25, 180);
             seriesLabel.Name = "seriesLabel";
-            seriesLabel.Size = new System.Drawing.Size(52, 17);
+            seriesLabel.Size = new System.Drawing.Size(53, 17);
             seriesLabel.TabIndex = 9;
-            seriesLabel.Text = "Series:";
+            seriesLabel.Text = "Серия:";
             // 
             // seriesNumberLabel
             // 
             seriesNumberLabel.AutoSize = true;
-            seriesNumberLabel.Location = new System.Drawing.Point(120, 216);
+            seriesNumberLabel.Location = new System.Drawing.Point(322, 180);
             seriesNumberLabel.Name = "seriesNumberLabel";
-            seriesNumberLabel.Size = new System.Drawing.Size(106, 17);
+            seriesNumberLabel.Size = new System.Drawing.Size(26, 17);
             seriesNumberLabel.TabIndex = 11;
-            seriesNumberLabel.Text = "Series Number:";
+            seriesNumberLabel.Text = "№:";
             // 
             // tableOfContentsLabel
             // 
             tableOfContentsLabel.AutoSize = true;
-            tableOfContentsLabel.Location = new System.Drawing.Point(120, 244);
+            tableOfContentsLabel.Location = new System.Drawing.Point(25, 250);
             tableOfContentsLabel.Name = "tableOfContentsLabel";
-            tableOfContentsLabel.Size = new System.Drawing.Size(127, 17);
+            tableOfContentsLabel.Size = new System.Drawing.Size(94, 17);
             tableOfContentsLabel.TabIndex = 13;
-            tableOfContentsLabel.Text = "Table Of Contents:";
-            // 
-            // isReadLabel
-            // 
-            isReadLabel.AutoSize = true;
-            isReadLabel.Location = new System.Drawing.Point(120, 274);
-            isReadLabel.Name = "isReadLabel";
-            isReadLabel.Size = new System.Drawing.Size(60, 17);
-            isReadLabel.TabIndex = 15;
-            isReadLabel.Text = "Is Read:";
-            // 
-            // isFavouriteLabel
-            // 
-            isFavouriteLabel.AutoSize = true;
-            isFavouriteLabel.Location = new System.Drawing.Point(120, 304);
-            isFavouriteLabel.Name = "isFavouriteLabel";
-            isFavouriteLabel.Size = new System.Drawing.Size(85, 17);
-            isFavouriteLabel.TabIndex = 17;
-            isFavouriteLabel.Text = "Is Favourite:";
+            tableOfContentsLabel.Text = "Содержание:";
             // 
             // shelfLabel
             // 
             shelfLabel.AutoSize = true;
-            shelfLabel.Location = new System.Drawing.Point(120, 332);
+            shelfLabel.Location = new System.Drawing.Point(25, 210);
             shelfLabel.Name = "shelfLabel";
-            shelfLabel.Size = new System.Drawing.Size(44, 17);
+            shelfLabel.Size = new System.Drawing.Size(53, 17);
             shelfLabel.TabIndex = 19;
-            shelfLabel.Text = "Shelf:";
+            shelfLabel.Text = "Полка:";
+            // 
+            // isFavouriteLabel
+            // 
+            isFavouriteLabel.AutoSize = true;
+            isFavouriteLabel.Location = new System.Drawing.Point(297, 313);
+            isFavouriteLabel.Name = "isFavouriteLabel";
+            isFavouriteLabel.Size = new System.Drawing.Size(85, 17);
+            isFavouriteLabel.TabIndex = 17;
+            isFavouriteLabel.Text = "Избранное:";
+            // 
+            // isReadLabel
+            // 
+            isReadLabel.AutoSize = true;
+            isReadLabel.Location = new System.Drawing.Point(297, 248);
+            isReadLabel.Name = "isReadLabel";
+            isReadLabel.Size = new System.Drawing.Size(93, 17);
+            isReadLabel.TabIndex = 15;
+            isReadLabel.Text = "Прочитанна:";
             // 
             // booksDataSet
             // 
@@ -251,9 +246,10 @@
             this.tBooksBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.tBooksBindingNavigator.Name = "tBooksBindingNavigator";
             this.tBooksBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.tBooksBindingNavigator.Size = new System.Drawing.Size(876, 27);
+            this.tBooksBindingNavigator.Size = new System.Drawing.Size(864, 27);
             this.tBooksBindingNavigator.TabIndex = 0;
             this.tBooksBindingNavigator.Text = "bindingNavigator1";
+            this.tBooksBindingNavigator.Visible = false;
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -352,25 +348,25 @@
             // idTextBox
             // 
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tBooksBindingSource, "id", true));
-            this.idTextBox.Location = new System.Drawing.Point(253, 70);
+            this.idTextBox.Location = new System.Drawing.Point(116, 62);
             this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(121, 22);
+            this.idTextBox.Size = new System.Drawing.Size(32, 22);
             this.idTextBox.TabIndex = 2;
             // 
             // titleTextBox
             // 
             this.titleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tBooksBindingSource, "Title", true));
-            this.titleTextBox.Location = new System.Drawing.Point(253, 98);
+            this.titleTextBox.Location = new System.Drawing.Point(116, 90);
             this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(121, 22);
+            this.titleTextBox.Size = new System.Drawing.Size(275, 22);
             this.titleTextBox.TabIndex = 4;
             // 
             // authorTextBox
             // 
             this.authorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tBooksBindingSource, "Author", true));
-            this.authorTextBox.Location = new System.Drawing.Point(253, 126);
+            this.authorTextBox.Location = new System.Drawing.Point(116, 118);
             this.authorTextBox.Name = "authorTextBox";
-            this.authorTextBox.Size = new System.Drawing.Size(121, 22);
+            this.authorTextBox.Size = new System.Drawing.Size(275, 22);
             this.authorTextBox.TabIndex = 6;
             // 
             // tCategoriesBindingSource
@@ -386,34 +382,44 @@
             // seriesNumberTextBox
             // 
             this.seriesNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tBooksBindingSource, "SeriesNumber", true));
-            this.seriesNumberTextBox.Location = new System.Drawing.Point(253, 213);
+            this.seriesNumberTextBox.Location = new System.Drawing.Point(354, 177);
             this.seriesNumberTextBox.Name = "seriesNumberTextBox";
-            this.seriesNumberTextBox.Size = new System.Drawing.Size(121, 22);
+            this.seriesNumberTextBox.Size = new System.Drawing.Size(37, 22);
             this.seriesNumberTextBox.TabIndex = 12;
             // 
             // tableOfContentsTextBox
             // 
             this.tableOfContentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tBooksBindingSource, "TableOfContents", true));
-            this.tableOfContentsTextBox.Location = new System.Drawing.Point(253, 241);
+            this.tableOfContentsTextBox.Location = new System.Drawing.Point(28, 279);
+            this.tableOfContentsTextBox.Multiline = true;
             this.tableOfContentsTextBox.Name = "tableOfContentsTextBox";
-            this.tableOfContentsTextBox.Size = new System.Drawing.Size(121, 22);
-            this.tableOfContentsTextBox.TabIndex = 14;
+            this.tableOfContentsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tableOfContentsTextBox.Size = new System.Drawing.Size(249, 235);
+            this.tableOfContentsTextBox.TabIndex = 16;
             // 
             // isReadCheckBox
             // 
+            this.isReadCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+            this.isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
+            this.isReadCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.isReadCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tBooksBindingSource, "IsRead", true));
-            this.isReadCheckBox.Location = new System.Drawing.Point(253, 269);
+            this.isReadCheckBox.FlatAppearance.BorderSize = 0;
+            this.isReadCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.isReadCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.isReadCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.isReadCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.isReadCheckBox.Location = new System.Drawing.Point(316, 265);
             this.isReadCheckBox.Name = "isReadCheckBox";
-            this.isReadCheckBox.Size = new System.Drawing.Size(121, 24);
-            this.isReadCheckBox.TabIndex = 16;
-            this.isReadCheckBox.Text = "checkBox1";
+            this.isReadCheckBox.Size = new System.Drawing.Size(43, 43);
+            this.isReadCheckBox.TabIndex = 18;
             this.isReadCheckBox.UseVisualStyleBackColor = true;
+            this.isReadCheckBox.CheckedChanged += new System.EventHandler(this.isReadCheckBox_CheckedChanged);
             // 
             // isFavouriteCheckBox
             // 
             this.isFavouriteCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
             this.isFavouriteCheckBox.BackColor = System.Drawing.SystemColors.Control;
-            this.isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_empty;
+            this.isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN31;
             this.isFavouriteCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.isFavouriteCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.isFavouriteCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tBooksBindingSource, "IsFavourite", true));
@@ -423,29 +429,31 @@
             this.isFavouriteCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.isFavouriteCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.isFavouriteCheckBox.ForeColor = System.Drawing.Color.Transparent;
-            this.isFavouriteCheckBox.Location = new System.Drawing.Point(253, 295);
+            this.isFavouriteCheckBox.Location = new System.Drawing.Point(316, 333);
             this.isFavouriteCheckBox.Name = "isFavouriteCheckBox";
-            this.isFavouriteCheckBox.Size = new System.Drawing.Size(41, 28);
-            this.isFavouriteCheckBox.TabIndex = 18;
+            this.isFavouriteCheckBox.Size = new System.Drawing.Size(43, 43);
+            this.isFavouriteCheckBox.TabIndex = 20;
             this.isFavouriteCheckBox.UseVisualStyleBackColor = false;
             this.isFavouriteCheckBox.CheckedChanged += new System.EventHandler(this.isFavouriteCheckBox_CheckedChanged);
             // 
             // shelfTextBox
             // 
             this.shelfTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tBooksBindingSource, "Shelf", true));
-            this.shelfTextBox.Location = new System.Drawing.Point(253, 329);
+            this.shelfTextBox.Location = new System.Drawing.Point(116, 207);
             this.shelfTextBox.Name = "shelfTextBox";
             this.shelfTextBox.Size = new System.Drawing.Size(121, 22);
             this.shelfTextBox.TabIndex = 20;
+            this.shelfTextBox.TabStop = false;
             this.shelfTextBox.TextChanged += new System.EventHandler(this.shelfTextBox_TextChanged);
             // 
             // categoryTextBox
             // 
             this.categoryTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tBooksBindingSource, "Category", true));
-            this.categoryTextBox.Location = new System.Drawing.Point(253, 154);
+            this.categoryTextBox.Location = new System.Drawing.Point(116, 146);
             this.categoryTextBox.Name = "categoryTextBox";
             this.categoryTextBox.Size = new System.Drawing.Size(121, 22);
             this.categoryTextBox.TabIndex = 22;
+            this.categoryTextBox.TabStop = false;
             this.categoryTextBox.TextChanged += new System.EventHandler(this.categoryTextBox_TextChanged);
             // 
             // catComboBox
@@ -453,10 +461,10 @@
             this.catComboBox.DataSource = this.tCategoriesBindingSource;
             this.catComboBox.DisplayMember = "Category";
             this.catComboBox.FormattingEnabled = true;
-            this.catComboBox.Location = new System.Drawing.Point(253, 154);
+            this.catComboBox.Location = new System.Drawing.Point(116, 146);
             this.catComboBox.Name = "catComboBox";
-            this.catComboBox.Size = new System.Drawing.Size(121, 24);
-            this.catComboBox.TabIndex = 23;
+            this.catComboBox.Size = new System.Drawing.Size(193, 24);
+            this.catComboBox.TabIndex = 8;
             this.catComboBox.ValueMember = "Id";
             this.catComboBox.SelectedValueChanged += new System.EventHandler(this.catComboBox_SelectedValueChanged);
             // 
@@ -465,10 +473,10 @@
             this.shComboBox.DataSource = this.tShelfBindingSource;
             this.shComboBox.DisplayMember = "Place";
             this.shComboBox.FormattingEnabled = true;
-            this.shComboBox.Location = new System.Drawing.Point(253, 329);
+            this.shComboBox.Location = new System.Drawing.Point(116, 207);
             this.shComboBox.Name = "shComboBox";
-            this.shComboBox.Size = new System.Drawing.Size(121, 24);
-            this.shComboBox.TabIndex = 24;
+            this.shComboBox.Size = new System.Drawing.Size(275, 24);
+            this.shComboBox.TabIndex = 14;
             this.shComboBox.ValueMember = "Id";
             this.shComboBox.SelectedIndexChanged += new System.EventHandler(this.shComboBox_SelectedIndexChanged);
             // 
@@ -481,121 +489,16 @@
             // 
             this.tShelfTableAdapter.ClearBeforeFill = true;
             // 
-            // FilterBox
-            // 
-            this.FilterBox.Location = new System.Drawing.Point(443, 69);
-            this.FilterBox.Name = "FilterBox";
-            this.FilterBox.Size = new System.Drawing.Size(190, 22);
-            this.FilterBox.TabIndex = 25;
-            // 
-            // TitleBtn
-            // 
-            this.TitleBtn.Location = new System.Drawing.Point(443, 101);
-            this.TitleBtn.Name = "TitleBtn";
-            this.TitleBtn.Size = new System.Drawing.Size(92, 50);
-            this.TitleBtn.TabIndex = 26;
-            this.TitleBtn.Text = "Фильтр по названию";
-            this.TitleBtn.UseVisualStyleBackColor = true;
-            this.TitleBtn.Click += new System.EventHandler(this.TitleBtn_Click);
-            // 
-            // ShowAll
-            // 
-            this.ShowAll.Location = new System.Drawing.Point(639, 108);
-            this.ShowAll.Name = "ShowAll";
-            this.ShowAll.Size = new System.Drawing.Size(109, 37);
-            this.ShowAll.TabIndex = 27;
-            this.ShowAll.Text = "Показать всё";
-            this.ShowAll.UseVisualStyleBackColor = true;
-            // 
-            // AuthorBtn
-            // 
-            this.AuthorBtn.Location = new System.Drawing.Point(541, 101);
-            this.AuthorBtn.Name = "AuthorBtn";
-            this.AuthorBtn.Size = new System.Drawing.Size(92, 50);
-            this.AuthorBtn.TabIndex = 28;
-            this.AuthorBtn.Text = "Фильтр по автору";
-            this.AuthorBtn.UseVisualStyleBackColor = true;
-            // 
-            // CategoryFltr
-            // 
-            this.CategoryFltr.FormattingEnabled = true;
-            this.CategoryFltr.Location = new System.Drawing.Point(443, 157);
-            this.CategoryFltr.Name = "CategoryFltr";
-            this.CategoryFltr.Size = new System.Drawing.Size(199, 24);
-            this.CategoryFltr.TabIndex = 29;
-            // 
-            // SeriesFltr
-            // 
-            this.SeriesFltr.FormattingEnabled = true;
-            this.SeriesFltr.Location = new System.Drawing.Point(443, 187);
-            this.SeriesFltr.Name = "SeriesFltr";
-            this.SeriesFltr.Size = new System.Drawing.Size(199, 24);
-            this.SeriesFltr.TabIndex = 30;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(443, 217);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 44);
-            this.button1.TabIndex = 31;
-            this.button1.Text = "Фильтр по автору";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(514, 217);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 44);
-            this.button2.TabIndex = 32;
-            this.button2.Text = "Фильтр по автору";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(586, 217);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(66, 46);
-            this.button3.TabIndex = 33;
-            this.button3.Text = "Фильтр по автору";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(442, 267);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(66, 44);
-            this.button4.TabIndex = 34;
-            this.button4.Text = "Фильтр по автору";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(514, 267);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(66, 44);
-            this.button5.TabIndex = 35;
-            this.button5.Text = "Фильтр по автору";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(586, 267);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(66, 44);
-            this.button6.TabIndex = 36;
-            this.button6.Text = "Фильтр по автору";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
             // seriesComboBox
             // 
             this.seriesComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tBooksBindingSource, "Series", true));
             this.seriesComboBox.DataSource = this.tSeriesBindingSource;
             this.seriesComboBox.DisplayMember = "Series";
             this.seriesComboBox.FormattingEnabled = true;
-            this.seriesComboBox.Location = new System.Drawing.Point(253, 185);
+            this.seriesComboBox.Location = new System.Drawing.Point(116, 177);
             this.seriesComboBox.Name = "seriesComboBox";
-            this.seriesComboBox.Size = new System.Drawing.Size(121, 24);
-            this.seriesComboBox.TabIndex = 37;
+            this.seriesComboBox.Size = new System.Drawing.Size(193, 24);
+            this.seriesComboBox.TabIndex = 10;
             // 
             // tSeriesBindingSource
             // 
@@ -606,24 +509,93 @@
             // 
             this.tSeriesTableAdapter.ClearBeforeFill = true;
             // 
-            // AddBooks
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(132, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(146, 17);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Добавление книги";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImage = global::Bookshelf.Properties.Resources.booklet;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(343, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(62, 62);
+            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabStop = false;
+            // 
+            // AddButton
+            // 
+            this.AddButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddButton.ImageIndex = 2;
+            this.AddButton.ImageList = this.imageList1;
+            this.AddButton.Location = new System.Drawing.Point(293, 400);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(112, 34);
+            this.AddButton.TabIndex = 25;
+            this.AddButton.Text = "Добавить";
+            this.AddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SaveButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SaveButton.ImageIndex = 0;
+            this.SaveButton.ImageList = this.imageList1;
+            this.SaveButton.Location = new System.Drawing.Point(293, 440);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(112, 34);
+            this.SaveButton.TabIndex = 26;
+            this.SaveButton.Text = "Сохранить";
+            this.SaveButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // ClearButton
+            // 
+            this.ClearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ClearButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ClearButton.ImageIndex = 1;
+            this.ClearButton.ImageList = this.imageList1;
+            this.ClearButton.Location = new System.Drawing.Point(293, 480);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(112, 34);
+            this.ClearButton.TabIndex = 27;
+            this.ClearButton.Text = "Очистить";
+            this.ClearButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "compose.png");
+            this.imageList1.Images.SetKeyName(1, "minus.png");
+            this.imageList1.Images.SetKeyName(2, "plus.png");
+            // 
+            // AddBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 486);
+            this.ClientSize = new System.Drawing.Size(425, 526);
+            this.Controls.Add(this.ClearButton);
+            this.Controls.Add(this.SaveButton);
+            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.seriesComboBox);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.SeriesFltr);
-            this.Controls.Add(this.CategoryFltr);
-            this.Controls.Add(this.AuthorBtn);
-            this.Controls.Add(this.ShowAll);
-            this.Controls.Add(this.TitleBtn);
-            this.Controls.Add(this.FilterBox);
             this.Controls.Add(this.shComboBox);
             this.Controls.Add(this.catComboBox);
             this.Controls.Add(this.categoryTextBox);
@@ -646,7 +618,8 @@
             this.Controls.Add(shelfLabel);
             this.Controls.Add(this.shelfTextBox);
             this.Controls.Add(this.tBooksBindingNavigator);
-            this.Name = "AddBooks";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "AddBook";
             this.Text = "AddBooks";
             this.Load += new System.EventHandler(this.AddBooks_Load);
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSet)).EndInit();
@@ -658,6 +631,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tShelfBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSeriesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -698,20 +672,14 @@
         private System.Windows.Forms.ComboBox shComboBox;
         private System.Windows.Forms.BindingSource tShelfBindingSource;
         private BooksDataSetTableAdapters.TShelfTableAdapter tShelfTableAdapter;
-        private System.Windows.Forms.TextBox FilterBox;
-        private System.Windows.Forms.Button TitleBtn;
-        private System.Windows.Forms.Button ShowAll;
-        private System.Windows.Forms.Button AuthorBtn;
-        private System.Windows.Forms.ComboBox CategoryFltr;
-        private System.Windows.Forms.ComboBox SeriesFltr;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox seriesComboBox;
         private System.Windows.Forms.BindingSource tSeriesBindingSource;
         private BooksDataSetTableAdapters.TSeriesTableAdapter tSeriesTableAdapter;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button AddButton;
+        private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

@@ -22,6 +22,9 @@ namespace Bookshelf
             this.Validate();
             this.tBooksBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.booksDataSet);
+            // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
+            tSeriesTableAdapter.InsertQuery();
+            tSeriesTableAdapter.Fill(booksDataSet.TSeries);
         }
 
         private void AddBooks_Load(object sender, EventArgs e)
@@ -34,7 +37,8 @@ namespace Bookshelf
             this.tCategoriesTableAdapter.Fill(this.booksDataSet.TCategories);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TBooks". При необходимости она может быть перемещена или удалена.
             this.tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
-            FavouriteImage();
+            tBooksBindingSource.AddNew();
+            tBooksBindingSource.MoveLast();
         }
 
         private void catComboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -49,21 +53,16 @@ namespace Bookshelf
 
         private void isFavouriteCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            FavouriteImage();
-        }
-
-        public void FavouriteImage()
-        {
             switch (isFavouriteCheckBox.CheckState)
             {
                 case CheckState.Checked:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_full;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN;
                     break;
                 case CheckState.Indeterminate:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_half;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN31;
                     break;
                 case CheckState.Unchecked:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_empty;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN2;
                     break;
                 default:
                     break;
@@ -85,10 +84,47 @@ namespace Bookshelf
                 shComboBox.SelectedValue = shelfTextBox.Text;
             }
         }
-        
-        private void TitleBtn_Click(object sender, EventArgs e)
+
+        private void isReadCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            tBooksBindingSource.Filter = "[Title] LIKE '%" + FilterBox.Text + "%'";
+            switch (isReadCheckBox.CheckState)
+            {
+                case CheckState.Checked:
+                    isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.green_tick;
+                    break;
+                case CheckState.Indeterminate:
+                    isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.half;
+                    break;
+                case CheckState.Unchecked:
+                    isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+            if (titleTextBox.Text != "")
+            {
+                tBooksBindingSource.AddNew();
+                tBooksBindingSource.MoveLast();
+            }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tBooksBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.booksDataSet);
+            // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
+            tSeriesTableAdapter.InsertQuery();
+            tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

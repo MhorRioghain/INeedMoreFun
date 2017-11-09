@@ -27,6 +27,8 @@ namespace Bookshelf
 
         private void ShowBook_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TSeries". При необходимости она может быть перемещена или удалена.
+            this.tSeriesTableAdapter.Fill(this.booksDataSet.TSeries);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TCategories". При необходимости она может быть перемещена или удалена.
             this.tCategoriesTableAdapter.Fill(this.booksDataSet.TCategories);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TShelf". При необходимости она может быть перемещена или удалена.
@@ -40,13 +42,13 @@ namespace Bookshelf
             switch (isFavouriteCheckBox.CheckState)
             {
                 case CheckState.Checked:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_full;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN;
                     break;
                 case CheckState.Indeterminate:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_half;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN31;
                     break;
                 case CheckState.Unchecked:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_empty;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN2;
                     break;
                 default:
                     break;
@@ -61,10 +63,10 @@ namespace Bookshelf
                     isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.green_tick;
                     break;
                 case CheckState.Indeterminate:
-                    isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
+                    isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.half;
                     break;
                 case CheckState.Unchecked:
-                    isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.half;
+                    isReadCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
                     break;
                 default:
                     break;
@@ -79,6 +81,26 @@ namespace Bookshelf
         private void ShelfComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             shelfTextBox.Text = Convert.ToString(ShelfComboBox.SelectedValue);
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tBooksBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.booksDataSet);
+            // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
+            tSeriesTableAdapter.InsertQuery();
+            tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+        }
+
+        private void categoryTextBox_TextChanged(object sender, EventArgs e)
+        {
+            CategoryComboBox.SelectedValue = categoryTextBox.Text;
+        }
+
+        private void shelfTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ShelfComboBox.SelectedValue = shelfTextBox.Text;
         }
     }
 }

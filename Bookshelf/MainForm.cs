@@ -12,8 +12,11 @@ namespace Bookshelf
 {
     public partial class MainForm : Form
     {
+        // TODO: переменные новых форм
         public AddBook ab = null;
         public Series ser = null;
+        public Categories cat = null;
+        public Shelfs shelf = null;
 
         // TODO: переменные необходимые для работы нескольких фильтров сразу.
         string filterName = null;
@@ -23,6 +26,38 @@ namespace Bookshelf
         public MainForm()
         {
             InitializeComponent();        
+        }
+
+        private void tBooksBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.tBooksBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.booksDataSet);
+            // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
+            tSeriesTableAdapter.InsertQuery();
+            tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            DataLoad();
+        }
+
+        private void DataLoad()
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TShelf". При необходимости она может быть перемещена или удалена.
+            this.tShelfTableAdapter.Fill(this.booksDataSet.TShelf);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TSeries". При необходимости она может быть перемещена или удалена.
+            this.tSeriesTableAdapter.Fill(this.booksDataSet.TSeries);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TCategories". При необходимости она может быть перемещена или удалена.
+            this.tCategoriesTableAdapter.Fill(this.booksDataSet.TCategories);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TBooks". При необходимости она может быть перемещена или удалена.
+            this.tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
+        }
+
+        private void UpdateTable_Click(object sender, EventArgs e)
+        {
+            DataLoad();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -39,8 +74,37 @@ namespace Bookshelf
             }
         }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            // TODO: открытие новой формы или активация уже открытой.
+            if (cat == null || cat.Text == "")
+            {
+                cat = new Categories();
+                cat.Show();
+            }
+            else
+            {
+                cat.Activate();
+            }
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            // TODO: открытие новой формы или активация уже открытой.
+            if (shelf == null || shelf.Text == "")
+            {
+                shelf = new Shelfs();
+                shelf.Show();
+            }
+            else
+            {
+                shelf.Activate();
+            }
+        }
+
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
+            // TODO: открытие новой формы или активация уже открытой.
             if (ser == null || ser.Text == "")
             {
                 ser = new Series();                
@@ -50,38 +114,9 @@ namespace Bookshelf
             {
                 ser.Activate();
             }
-
-            ser.tSeriesTableAdapter.InsertQuery();
-            ser.tSeriesTableAdapter.Fill(ser.booksDataSet.TSeries);
         }
 
-        private void tBooksBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.tBooksBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.booksDataSet);
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TShelf". При необходимости она может быть перемещена или удалена.
-            this.tShelfTableAdapter.Fill(this.booksDataSet.TShelf);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TSeries". При необходимости она может быть перемещена или удалена.
-            this.tSeriesTableAdapter.Fill(this.booksDataSet.TSeries);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TCategories". При необходимости она может быть перемещена или удалена.
-            this.tCategoriesTableAdapter.Fill(this.booksDataSet.TCategories);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TBooks". При необходимости она может быть перемещена или удалена.
-            this.tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
-        }
-
-        private void UpdateTable_Click(object sender, EventArgs e)
-        {
-            // TODO: обновление данных на форме.
-            tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
-            tCategoriesTableAdapter.Fill(this.booksDataSet.TCategories);
-            tSeriesTableAdapter.Fill(this.booksDataSet.TSeries);
-        }
-
+        // TODO: фильтры для таблицы "booksDataSet.TBooks".
         private void TitleFilter_Click(object sender, EventArgs e)
         {
             filterName = null;
@@ -96,13 +131,10 @@ namespace Bookshelf
             tBooksBindingSource.Filter = filterName + filterSeries + filterRead;
         }
 
-        private void ShowAll_Click(object sender, EventArgs e)
+        private void ContentFilter_Click(object sender, EventArgs e)
         {
-            filterName = null;
-            filterSeries = null;
-            filterRead = null;
-            tBooksBindingSource.RemoveFilter();
-        }
+            tBooksBindingSource.Filter = "TableOfContents LIKE '%" + FilterBox.Text + "%'";
+        }        
 
         private void CategoryFltr_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -121,6 +153,14 @@ namespace Bookshelf
                 tBooksBindingSource.Filter = filterName + filterSeries + filterRead;
             }
         }
+
+        private void ShelfFltr_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (ShelfFltr.Focused == true)
+            {
+                tBooksBindingSource.Filter = "Shelf = " + (int)ShelfFltr.SelectedValue;
+            }
+        } 
 
         private void Read_Click(object sender, EventArgs e)
         {
@@ -143,6 +183,7 @@ namespace Bookshelf
             tBooksBindingSource.Filter = filterName + filterSeries + filterRead;
         }
 
+        // TODO: добавляет операнд "и" к началу строки фильтра, если задано несколько критериев поиска. 
         private string AddAnd()
         {
             string str = null;
@@ -167,9 +208,19 @@ namespace Bookshelf
         {
             tBooksBindingSource.Filter = "IsFavourite = false OR IsFavourite = true";
         }
-
+        
+        // TODO: очистка фильтров для таблицы "booksDataSet.TBooks".
+        private void ShowAll_Click(object sender, EventArgs e)
+        {            
+            filterName = null;
+            filterSeries = null;
+            filterRead = null;
+            tBooksBindingSource.RemoveFilter();
+        }
+        
         private void tBooksDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // TODO: открытие определённой записи таблицы "booksDataSet.TBooks".
             if (e.ColumnIndex == 10)
             {
                 ShowBook sb = new ShowBook();
