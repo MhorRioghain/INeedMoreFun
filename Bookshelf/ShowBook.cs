@@ -85,12 +85,19 @@ namespace Bookshelf
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.tBooksBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.booksDataSet);
-            // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
-            tSeriesTableAdapter.InsertQuery();
-            tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+            if (titleTextBox.Text != "")
+            {
+                this.Validate();
+                this.tBooksBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.booksDataSet);
+                // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
+                tSeriesTableAdapter.InsertQuery();
+                tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+            }
+            else
+            {
+                toolTip1.Show("Введите название книги", SaveButton);
+            }
         }
 
         private void categoryTextBox_TextChanged(object sender, EventArgs e)

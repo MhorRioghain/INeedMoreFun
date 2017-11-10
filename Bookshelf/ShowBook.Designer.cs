@@ -76,6 +76,7 @@
             this.categoryComboBox1 = new System.Windows.Forms.ComboBox();
             this.tSeriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tSeriesTableAdapter = new Bookshelf.BooksDataSetTableAdapters.TSeriesTableAdapter();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             titleLabel = new System.Windows.Forms.Label();
             authorLabel = new System.Windows.Forms.Label();
             categoryLabel = new System.Windows.Forms.Label();
@@ -511,10 +512,17 @@
             // 
             this.tSeriesTableAdapter.ClearBeforeFill = true;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 5000;
+            this.toolTip1.InitialDelay = 1;
+            this.toolTip1.ReshowDelay = 0;
+            // 
             // ShowBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(644, 356);
             this.Controls.Add(this.categoryComboBox1);
             this.Controls.Add(this.label1);
@@ -597,5 +605,6 @@
         private System.Windows.Forms.ComboBox categoryComboBox1;
         private System.Windows.Forms.BindingSource tSeriesBindingSource;
         private BooksDataSetTableAdapters.TSeriesTableAdapter tSeriesTableAdapter;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

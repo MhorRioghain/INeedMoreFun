@@ -12,6 +12,8 @@ namespace Bookshelf
 {
     public partial class AddBook : Form
     {
+        string id;
+
         public AddBook()
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace Bookshelf
             // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TBooks". При необходимости она может быть перемещена или удалена.
             this.tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
             tBooksBindingSource.AddNew();
-            tBooksBindingSource.MoveLast();
+            id = idTextBox.Text;
         }
 
         private void catComboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -108,23 +110,44 @@ namespace Bookshelf
             if (titleTextBox.Text != "")
             {
                 tBooksBindingSource.AddNew();
-                tBooksBindingSource.MoveLast();
+                id = idTextBox.Text;
+                toolTip1.Hide(AddButton);
+            }
+            else
+            {
+                toolTip1.Show("Введите название книги", AddButton);
             }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.tBooksBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.booksDataSet);
-            // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
-            tSeriesTableAdapter.InsertQuery();
-            tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+            if (titleTextBox.Text != "")
+            {
+                this.Validate();
+                this.tBooksBindingSource.EndEdit(); 
+                this.tableAdapterManager.UpdateAll(this.booksDataSet);
+                // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
+                tSeriesTableAdapter.InsertQuery();
+                tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+                toolTip1.Hide(SaveButton);
+            }
+            else
+            {
+                toolTip1.Show("Введите название книги", SaveButton);
+            }
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
         {
-            
+            tBooksBindingSource.RemoveCurrent();
+            tBooksBindingSource.AddNew();
+            idTextBox.Text = id;
+        }
+
+        private void FocusLeave(object sender, EventArgs e)
+        {
+            toolTip1.Hide(AddButton);
+            toolTip1.Hide(SaveButton);
         }
     }
 }

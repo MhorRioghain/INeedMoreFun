@@ -162,6 +162,12 @@
   <metadata name="tCategoriesTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 60</value>
   </metadata>
+  <metadata name="tSeriesTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>808, 60</value>
+  </metadata>
+  <metadata name="tShelfTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>429, 60</value>
+  </metadata>
   <metadata name="tBooksBindingNavigator.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>754, 17</value>
   </metadata>
@@ -253,17 +259,11 @@
   <metadata name="tShelfBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>239, 60</value>
   </metadata>
-  <metadata name="tShelfTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>429, 60</value>
-  </metadata>
   <metadata name="tSeriesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>612, 60</value>
   </metadata>
   <metadata name="tSeriesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>612, 60</value>
-  </metadata>
-  <metadata name="tSeriesTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>808, 60</value>
   </metadata>
   <metadata name="imageList1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>997, 60</value>
@@ -273,7 +273,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAa
-        EQAAAk1TRnQBSQFMAgEBAwEAAQgBAAEIAQABFAEAARQBAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFQ
+        EQAAAk1TRnQBSQFMAgEBAwEAASABAAEgAQABFAEAARQBAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFQ
         AwABFAMAAQEBAAEQBQABgAEMHgABFQE7ARUBOwEVATsBFQE7ARUBOwEVATsBFQE7ARUBOwF5AVsWAAEU
         AXMBbAFyAWsBcgFrAXIBawFyAWsBcgFrAXIBFAFzAd4BfxQAAf8BfwFZAVsBFgE/ARUBOwEVATsBFQE7
         ARUBOwEVATsBWQFXAd4BezoAAXkBWwEVATsBFQE7ARUBOwEVATsBFQE7ARUBOwEVATsBFQE7ARUBOwEV
@@ -349,6 +349,9 @@
         BAAL
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>1123, 60</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAABABILAAASCwAAAAAAAAAA

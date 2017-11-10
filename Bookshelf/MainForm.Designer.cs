@@ -74,16 +74,8 @@
             this.CategoryFltr = new System.Windows.Forms.ComboBox();
             this.SeriesFltr = new System.Windows.Forms.ComboBox();
             this.tSeriesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.AuthorFilter = new System.Windows.Forms.Button();
-            this.TitleFilter = new System.Windows.Forms.Button();
-            this.FavouriteUncheck = new System.Windows.Forms.Button();
             this.ShowAll = new System.Windows.Forms.Button();
             this.FilterBox = new System.Windows.Forms.TextBox();
-            this.FavouriteCheck = new System.Windows.Forms.Button();
-            this.FavouriteAll = new System.Windows.Forms.Button();
-            this.Read = new System.Windows.Forms.Button();
-            this.Unread = new System.Windows.Forms.Button();
-            this.Un_Read = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -94,11 +86,20 @@
             this.ContentFilter = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.ShelfFltr = new System.Windows.Forms.ComboBox();
+            this.Un_Read = new System.Windows.Forms.Button();
+            this.Unread = new System.Windows.Forms.Button();
+            this.Read = new System.Windows.Forms.Button();
+            this.FavouriteAll = new System.Windows.Forms.Button();
+            this.FavouriteCheck = new System.Windows.Forms.Button();
+            this.FavouriteUncheck = new System.Windows.Forms.Button();
+            this.TitleFilter = new System.Windows.Forms.Button();
+            this.AuthorFilter = new System.Windows.Forms.Button();
             this.tSeriesTableAdapter = new Bookshelf.BooksDataSetTableAdapters.TSeriesTableAdapter();
             this.tShelfTableAdapter = new Bookshelf.BooksDataSetTableAdapters.TShelfTableAdapter();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.booksDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tBooksBindingSource)).BeginInit();
@@ -109,8 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tShelfBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tSeriesBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // MainMenu
@@ -370,13 +371,17 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tBooksDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.tBooksDataGridView.RowHeadersWidth = 30;
+            this.tBooksDataGridView.RowHeadersWidth = 40;
+            this.tBooksDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.tBooksDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tBooksDataGridView.RowTemplate.Height = 24;
             this.tBooksDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.tBooksDataGridView.Size = new System.Drawing.Size(1180, 621);
             this.tBooksDataGridView.TabIndex = 2;
             this.tBooksDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tBooksDataGridView_CellContentClick);
+            this.tBooksDataGridView.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.tBooksDataGridView_CellPainting);
+            this.tBooksDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.tBooksDataGridView_DataError);
+            this.tBooksDataGridView.Sorted += new System.EventHandler(this.tBooksDataGridView_Sorted);
             // 
             // dataGridViewId
             // 
@@ -484,7 +489,7 @@
             this.CategoryFltr.DataSource = this.tCategoriesBindingSource;
             this.CategoryFltr.DisplayMember = "Category";
             this.CategoryFltr.FormattingEnabled = true;
-            this.CategoryFltr.Location = new System.Drawing.Point(46, 219);
+            this.CategoryFltr.Location = new System.Drawing.Point(55, 221);
             this.CategoryFltr.Name = "CategoryFltr";
             this.CategoryFltr.Size = new System.Drawing.Size(199, 24);
             this.CategoryFltr.TabIndex = 41;
@@ -496,7 +501,7 @@
             this.SeriesFltr.DataSource = this.tSeriesBindingSource;
             this.SeriesFltr.DisplayMember = "Series";
             this.SeriesFltr.FormattingEnabled = true;
-            this.SeriesFltr.Location = new System.Drawing.Point(46, 281);
+            this.SeriesFltr.Location = new System.Drawing.Point(55, 283);
             this.SeriesFltr.Name = "SeriesFltr";
             this.SeriesFltr.Size = new System.Drawing.Size(198, 24);
             this.SeriesFltr.TabIndex = 42;
@@ -507,44 +512,6 @@
             // 
             this.tSeriesBindingSource.DataMember = "TSeries";
             this.tSeriesBindingSource.DataSource = this.booksDataSet;
-            // 
-            // AuthorFilter
-            // 
-            this.AuthorFilter.Image = global::Bookshelf.Properties.Resources.zoom;
-            this.AuthorFilter.Location = new System.Drawing.Point(151, 116);
-            this.AuthorFilter.Name = "AuthorFilter";
-            this.AuthorFilter.Size = new System.Drawing.Size(125, 30);
-            this.AuthorFilter.TabIndex = 40;
-            this.AuthorFilter.Text = "по автору";
-            this.AuthorFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AuthorFilter.UseVisualStyleBackColor = true;
-            this.AuthorFilter.Click += new System.EventHandler(this.AuthorFilter_Click);
-            // 
-            // TitleFilter
-            // 
-            this.TitleFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.TitleFilter.Image = global::Bookshelf.Properties.Resources.zoom;
-            this.TitleFilter.Location = new System.Drawing.Point(20, 116);
-            this.TitleFilter.Name = "TitleFilter";
-            this.TitleFilter.Size = new System.Drawing.Size(125, 30);
-            this.TitleFilter.TabIndex = 38;
-            this.TitleFilter.Text = "по названию";
-            this.TitleFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.TitleFilter.UseVisualStyleBackColor = true;
-            this.TitleFilter.Click += new System.EventHandler(this.TitleFilter_Click);
-            // 
-            // FavouriteUncheck
-            // 
-            this.FavouriteUncheck.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FavouriteUncheck.BackgroundImage")));
-            this.FavouriteUncheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.FavouriteUncheck.FlatAppearance.BorderSize = 0;
-            this.FavouriteUncheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FavouriteUncheck.Location = new System.Drawing.Point(64, 512);
-            this.FavouriteUncheck.Name = "FavouriteUncheck";
-            this.FavouriteUncheck.Size = new System.Drawing.Size(44, 44);
-            this.FavouriteUncheck.TabIndex = 46;
-            this.FavouriteUncheck.UseVisualStyleBackColor = true;
-            this.FavouriteUncheck.Click += new System.EventHandler(this.FavouriteUncheck_Click);
             // 
             // ShowAll
             // 
@@ -562,71 +529,6 @@
             this.FilterBox.Name = "FilterBox";
             this.FilterBox.Size = new System.Drawing.Size(199, 22);
             this.FilterBox.TabIndex = 37;
-            // 
-            // FavouriteCheck
-            // 
-            this.FavouriteCheck.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FavouriteCheck.BackgroundImage")));
-            this.FavouriteCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.FavouriteCheck.FlatAppearance.BorderSize = 0;
-            this.FavouriteCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FavouriteCheck.Location = new System.Drawing.Point(124, 512);
-            this.FavouriteCheck.Name = "FavouriteCheck";
-            this.FavouriteCheck.Size = new System.Drawing.Size(44, 44);
-            this.FavouriteCheck.TabIndex = 47;
-            this.FavouriteCheck.UseVisualStyleBackColor = true;
-            this.FavouriteCheck.Click += new System.EventHandler(this.FavouriteCheck_Click);
-            // 
-            // FavouriteAll
-            // 
-            this.FavouriteAll.BackgroundImage = global::Bookshelf.Properties.Resources.starN31;
-            this.FavouriteAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.FavouriteAll.FlatAppearance.BorderSize = 0;
-            this.FavouriteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FavouriteAll.Location = new System.Drawing.Point(185, 512);
-            this.FavouriteAll.Name = "FavouriteAll";
-            this.FavouriteAll.Size = new System.Drawing.Size(44, 44);
-            this.FavouriteAll.TabIndex = 48;
-            this.FavouriteAll.UseVisualStyleBackColor = true;
-            this.FavouriteAll.Click += new System.EventHandler(this.FavouriteAll_Click);
-            // 
-            // Read
-            // 
-            this.Read.BackgroundImage = global::Bookshelf.Properties.Resources.green_tick;
-            this.Read.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Read.FlatAppearance.BorderSize = 0;
-            this.Read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Read.Location = new System.Drawing.Point(64, 424);
-            this.Read.Name = "Read";
-            this.Read.Size = new System.Drawing.Size(44, 44);
-            this.Read.TabIndex = 49;
-            this.Read.UseVisualStyleBackColor = true;
-            this.Read.Click += new System.EventHandler(this.Read_Click);
-            // 
-            // Unread
-            // 
-            this.Unread.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
-            this.Unread.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Unread.FlatAppearance.BorderSize = 0;
-            this.Unread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Unread.Location = new System.Drawing.Point(125, 424);
-            this.Unread.Name = "Unread";
-            this.Unread.Size = new System.Drawing.Size(44, 44);
-            this.Unread.TabIndex = 50;
-            this.Unread.UseVisualStyleBackColor = true;
-            this.Unread.Click += new System.EventHandler(this.Unread_Click);
-            // 
-            // Un_Read
-            // 
-            this.Un_Read.BackgroundImage = global::Bookshelf.Properties.Resources.half;
-            this.Un_Read.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Un_Read.FlatAppearance.BorderSize = 0;
-            this.Un_Read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Un_Read.Location = new System.Drawing.Point(186, 424);
-            this.Un_Read.Name = "Un_Read";
-            this.Un_Read.Size = new System.Drawing.Size(44, 44);
-            this.Un_Read.TabIndex = 51;
-            this.Un_Read.UseVisualStyleBackColor = true;
-            this.Un_Read.Click += new System.EventHandler(this.Un_Read_Click);
             // 
             // label1
             // 
@@ -651,7 +553,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(46, 199);
+            this.label3.Location = new System.Drawing.Point(55, 201);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 17);
             this.label3.TabIndex = 54;
@@ -660,7 +562,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(46, 261);
+            this.label4.Location = new System.Drawing.Point(55, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(122, 17);
             this.label4.TabIndex = 55;
@@ -708,9 +610,9 @@
             this.panel1.Controls.Add(this.AuthorFilter);
             this.panel1.Controls.Add(this.SeriesFltr);
             this.panel1.Controls.Add(this.CategoryFltr);
-            this.panel1.Location = new System.Drawing.Point(1199, 55);
+            this.panel1.Location = new System.Drawing.Point(1194, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 642);
+            this.panel1.Size = new System.Drawing.Size(301, 642);
             this.panel1.TabIndex = 49;
             // 
             // ContentFilter
@@ -728,7 +630,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(46, 327);
+            this.label7.Location = new System.Drawing.Point(55, 329);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(122, 17);
             this.label7.TabIndex = 59;
@@ -739,12 +641,115 @@
             this.ShelfFltr.DataSource = this.tShelfBindingSource;
             this.ShelfFltr.DisplayMember = "Place";
             this.ShelfFltr.FormattingEnabled = true;
-            this.ShelfFltr.Location = new System.Drawing.Point(46, 347);
+            this.ShelfFltr.Location = new System.Drawing.Point(55, 349);
             this.ShelfFltr.Name = "ShelfFltr";
             this.ShelfFltr.Size = new System.Drawing.Size(198, 24);
             this.ShelfFltr.TabIndex = 58;
             this.ShelfFltr.ValueMember = "Id";
             this.ShelfFltr.SelectedValueChanged += new System.EventHandler(this.ShelfFltr_SelectedValueChanged);
+            // 
+            // Un_Read
+            // 
+            this.Un_Read.BackgroundImage = global::Bookshelf.Properties.Resources.half;
+            this.Un_Read.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Un_Read.FlatAppearance.BorderSize = 0;
+            this.Un_Read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Un_Read.Location = new System.Drawing.Point(186, 424);
+            this.Un_Read.Name = "Un_Read";
+            this.Un_Read.Size = new System.Drawing.Size(44, 44);
+            this.Un_Read.TabIndex = 51;
+            this.Un_Read.UseVisualStyleBackColor = true;
+            this.Un_Read.Click += new System.EventHandler(this.Un_Read_Click);
+            // 
+            // Unread
+            // 
+            this.Unread.BackgroundImage = global::Bookshelf.Properties.Resources.cross_red;
+            this.Unread.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Unread.FlatAppearance.BorderSize = 0;
+            this.Unread.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Unread.Location = new System.Drawing.Point(125, 424);
+            this.Unread.Name = "Unread";
+            this.Unread.Size = new System.Drawing.Size(44, 44);
+            this.Unread.TabIndex = 50;
+            this.Unread.UseVisualStyleBackColor = true;
+            this.Unread.Click += new System.EventHandler(this.Unread_Click);
+            // 
+            // Read
+            // 
+            this.Read.BackgroundImage = global::Bookshelf.Properties.Resources.green_tick;
+            this.Read.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Read.FlatAppearance.BorderSize = 0;
+            this.Read.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Read.Location = new System.Drawing.Point(64, 424);
+            this.Read.Name = "Read";
+            this.Read.Size = new System.Drawing.Size(44, 44);
+            this.Read.TabIndex = 49;
+            this.Read.UseVisualStyleBackColor = true;
+            this.Read.Click += new System.EventHandler(this.Read_Click);
+            // 
+            // FavouriteAll
+            // 
+            this.FavouriteAll.BackgroundImage = global::Bookshelf.Properties.Resources.starN31;
+            this.FavouriteAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.FavouriteAll.FlatAppearance.BorderSize = 0;
+            this.FavouriteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FavouriteAll.Location = new System.Drawing.Point(185, 512);
+            this.FavouriteAll.Name = "FavouriteAll";
+            this.FavouriteAll.Size = new System.Drawing.Size(44, 44);
+            this.FavouriteAll.TabIndex = 48;
+            this.FavouriteAll.UseVisualStyleBackColor = true;
+            this.FavouriteAll.Click += new System.EventHandler(this.FavouriteAll_Click);
+            // 
+            // FavouriteCheck
+            // 
+            this.FavouriteCheck.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FavouriteCheck.BackgroundImage")));
+            this.FavouriteCheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.FavouriteCheck.FlatAppearance.BorderSize = 0;
+            this.FavouriteCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FavouriteCheck.Location = new System.Drawing.Point(124, 512);
+            this.FavouriteCheck.Name = "FavouriteCheck";
+            this.FavouriteCheck.Size = new System.Drawing.Size(44, 44);
+            this.FavouriteCheck.TabIndex = 47;
+            this.FavouriteCheck.UseVisualStyleBackColor = true;
+            this.FavouriteCheck.Click += new System.EventHandler(this.FavouriteCheck_Click);
+            // 
+            // FavouriteUncheck
+            // 
+            this.FavouriteUncheck.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("FavouriteUncheck.BackgroundImage")));
+            this.FavouriteUncheck.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.FavouriteUncheck.FlatAppearance.BorderSize = 0;
+            this.FavouriteUncheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FavouriteUncheck.Location = new System.Drawing.Point(64, 512);
+            this.FavouriteUncheck.Name = "FavouriteUncheck";
+            this.FavouriteUncheck.Size = new System.Drawing.Size(44, 44);
+            this.FavouriteUncheck.TabIndex = 46;
+            this.FavouriteUncheck.UseVisualStyleBackColor = true;
+            this.FavouriteUncheck.Click += new System.EventHandler(this.FavouriteUncheck_Click);
+            // 
+            // TitleFilter
+            // 
+            this.TitleFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.TitleFilter.Image = global::Bookshelf.Properties.Resources.zoom;
+            this.TitleFilter.Location = new System.Drawing.Point(20, 116);
+            this.TitleFilter.Name = "TitleFilter";
+            this.TitleFilter.Size = new System.Drawing.Size(125, 30);
+            this.TitleFilter.TabIndex = 38;
+            this.TitleFilter.Text = "по названию";
+            this.TitleFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.TitleFilter.UseVisualStyleBackColor = true;
+            this.TitleFilter.Click += new System.EventHandler(this.TitleFilter_Click);
+            // 
+            // AuthorFilter
+            // 
+            this.AuthorFilter.Image = global::Bookshelf.Properties.Resources.zoom;
+            this.AuthorFilter.Location = new System.Drawing.Point(151, 116);
+            this.AuthorFilter.Name = "AuthorFilter";
+            this.AuthorFilter.Size = new System.Drawing.Size(125, 30);
+            this.AuthorFilter.TabIndex = 40;
+            this.AuthorFilter.Text = "по автору";
+            this.AuthorFilter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AuthorFilter.UseVisualStyleBackColor = true;
+            this.AuthorFilter.Click += new System.EventHandler(this.AuthorFilter_Click);
             // 
             // tSeriesTableAdapter
             // 
@@ -753,18 +758,6 @@
             // tShelfTableAdapter
             // 
             this.tShelfTableAdapter.ClearBeforeFill = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.BackgroundImage = global::Bookshelf.Properties.Resources.stack;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(1042, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 62);
-            this.pictureBox1.TabIndex = 50;
-            this.pictureBox1.TabStop = false;
             // 
             // label8
             // 
@@ -777,22 +770,41 @@
             this.label8.TabIndex = 51;
             this.label8.Text = "Литература";
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(20, 20);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackgroundImage = global::Bookshelf.Properties.Resources.magnifyingglass;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(1118, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(1194, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(62, 62);
             this.pictureBox2.TabIndex = 52;
             this.pictureBox2.TabStop = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackgroundImage = global::Bookshelf.Properties.Resources.stack;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(1118, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(62, 62);
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1507, 707);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.label8);
@@ -818,8 +830,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tSeriesBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -894,6 +906,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 

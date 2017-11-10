@@ -30,12 +30,27 @@ namespace Bookshelf
 
         private void tBooksBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.tBooksBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.booksDataSet);
-            // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
-            tSeriesTableAdapter.InsertQuery();
-            tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+            try
+            {
+                this.Validate();
+                this.tBooksBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.booksDataSet);
+                // TODO: заполняет таблицу "booksDataSet.TSeries" отсутствующими неповторяющимеся данными из таблицы "booksDataSet.TBooks".
+                tSeriesTableAdapter.InsertQuery();
+                tSeriesTableAdapter.Fill(booksDataSet.TSeries);
+                RowHeaderColor();
+            }
+            catch (global::System.Exception ex)
+            {
+                if (ex.Message == "Необходимо ввести значение в поле \"TBooks.Title\".")
+                {
+                    MessageBox.Show("Необходимо ввести название книги", "Внимание!");
+                }
+                else 
+                { 
+                    MessageBox.Show(ex.Message); 
+                }
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -53,6 +68,7 @@ namespace Bookshelf
             this.tCategoriesTableAdapter.Fill(this.booksDataSet.TCategories);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "booksDataSet.TBooks". При необходимости она может быть перемещена или удалена.
             this.tBooksTableAdapter.Fill(this.booksDataSet.TBooks);
+            RowHeaderColor();
         }
 
         private void UpdateTable_Click(object sender, EventArgs e)
@@ -221,11 +237,74 @@ namespace Bookshelf
         private void tBooksDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // TODO: открытие определённой записи таблицы "booksDataSet.TBooks".
-            if (e.ColumnIndex == 10)
+            if (e.ColumnIndex == 10 && e.RowIndex < tBooksDataGridView.RowCount - 1)
             {
                 ShowBook sb = new ShowBook();
                 sb.tBooksBindingSource.Filter = "id = " + Convert.ToInt32(tBooksDataGridView[0, e.RowIndex].Value);
                 sb.Show();
+            }
+        }
+
+        private void tBooksDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.Exception.Message == "В столбце \"id\" не допускаются значения равные nulls.")
+            {
+                MessageBox.Show("Номер книги п.п. обязателен", "Ошибка!");
+            }
+            else
+            {
+                MessageBox.Show(e.Exception.Message);
+            }
+        }
+            
+        // TODO: функция закрашивает заголовки строк, в которых не присвоены значения параметрам "Категория" и "Полка"
+        private void RowHeaderColor()
+        {
+            tBooksDataGridView.EnableHeadersVisualStyles = false;
+            foreach (DataGridViewRow r in tBooksDataGridView.Rows)
+            {                
+                if (r.Cells["dataGridViewShelf"].Value == null || r.Cells["dataGridViewShelf"].Value.ToString() == "" 
+                    || r.Cells["dataGridViewCategory"].Value.ToString() == "" || r.Cells["dataGridViewCategory"].Value == null)
+                {
+                    r.HeaderCell.Style.BackColor = Color.Salmon;
+                }
+                else
+                {
+                    r.HeaderCell.Style.BackColor = Color.WhiteSmoke;
+                }
+                if (r.Index == tBooksDataGridView.RowCount - 1)
+                {
+                    r.HeaderCell.Style.BackColor = Color.WhiteSmoke;
+                }
+            }
+        }
+
+        private void tBooksDataGridView_Sorted(object sender, EventArgs e)
+        {
+            RowHeaderColor();        
+        }
+
+        private void tBooksDataGridView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            // TODO: меняет стандартную иконку сортировки на выбранные изображения из ресурсов проекта.
+            imageList1.Images.Add(global::Bookshelf.Properties.Resources.arrowupM);
+            imageList1.Images.Add(global::Bookshelf.Properties.Resources.arrowdownM);
+            if (e.RowIndex == -1 && e.ColumnIndex >= 1 && tBooksDataGridView.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection != SortOrder.None)
+            {
+                Image image = null;
+                if (tBooksDataGridView.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection == SortOrder.Ascending)
+                {
+                    image = imageList1.Images[0];
+                }
+                else if (tBooksDataGridView.Columns[e.ColumnIndex].HeaderCell.SortGlyphDirection == SortOrder.Descending)
+                {
+                    image = imageList1.Images[1];
+                }
+                SolidBrush brush = new SolidBrush(Color.WhiteSmoke);                
+                e.Graphics.FillRectangle(brush, e.CellBounds);                                
+                e.Paint(e.ClipBounds, (DataGridViewPaintParts.All & ~DataGridViewPaintParts.Background));
+                e.Graphics.DrawImage(image, new Point(e.CellBounds.X + e.CellBounds.Width - 20, e.CellBounds.Y + (e.CellBounds.Height / 2) - (image.Height / 2)));
+                e.Handled = true;
             }
         }
     }

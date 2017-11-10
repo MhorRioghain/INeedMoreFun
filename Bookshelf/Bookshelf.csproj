@@ -146,7 +146,17 @@
     <Content Include="Books.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\up3.png" />
+    <None Include="Resources\191.png" />
+    <None Include="Resources\134.png" />
+    <None Include="Resources\arrowdown.png" />
+    <None Include="Resources\arrowup.png" />
+    <None Include="Resources\arrowdownM.png" />
+    <None Include="Resources\arrowupM.png" />
     <Content Include="Resources\compose.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\down3.png" />
     <Content Include="Resources\minus.png" />
     <Content Include="Resources\plus.png" />
     <None Include="Resources\add11.png" />
