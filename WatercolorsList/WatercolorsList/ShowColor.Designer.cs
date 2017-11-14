@@ -132,9 +132,9 @@
             setLabel.AutoSize = true;
             setLabel.Location = new System.Drawing.Point(19, 59);
             setLabel.Name = "setLabel";
-            setLabel.Size = new System.Drawing.Size(53, 17);
+            setLabel.Size = new System.Drawing.Size(54, 17);
             setLabel.TabIndex = 4;
-            setLabel.Text = "Серия:";
+            setLabel.Text = "Набор:";
             // 
             // coloringLabel
             // 
@@ -229,11 +229,11 @@
             // toBuyLabel
             // 
             toBuyLabel.AutoSize = true;
-            toBuyLabel.Location = new System.Drawing.Point(19, 387);
+            toBuyLabel.Location = new System.Drawing.Point(19, 386);
             toBuyLabel.Name = "toBuyLabel";
-            toBuyLabel.Size = new System.Drawing.Size(58, 17);
+            toBuyLabel.Size = new System.Drawing.Size(98, 17);
             toBuyLabel.TabIndex = 26;
-            toBuyLabel.Text = "Купить:";
+            toBuyLabel.Text = "Надо купить?";
             // 
             // watercolorsDataSet
             // 
@@ -299,7 +299,7 @@
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Image = global::WatercolorsList.Properties.Resources.add2;
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 24);
@@ -315,7 +315,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Image = global::WatercolorsList.Properties.Resources.close1;
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 24);
@@ -324,7 +324,7 @@
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Image = global::WatercolorsList.Properties.Resources.first;
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 24);
@@ -333,7 +333,7 @@
             // bindingNavigatorMovePreviousItem
             // 
             this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Image = global::WatercolorsList.Properties.Resources.left1;
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 24);
@@ -361,7 +361,7 @@
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Image = global::WatercolorsList.Properties.Resources.right1;
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 24);
@@ -370,7 +370,7 @@
             // bindingNavigatorMoveLastItem
             // 
             this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Image = global::WatercolorsList.Properties.Resources.last;
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 24);
@@ -384,7 +384,7 @@
             // tWatercolorBindingNavigatorSaveItem
             // 
             this.tWatercolorBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tWatercolorBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("tWatercolorBindingNavigatorSaveItem.Image")));
+            this.tWatercolorBindingNavigatorSaveItem.Image = global::WatercolorsList.Properties.Resources.diskette1;
             this.tWatercolorBindingNavigatorSaveItem.Name = "tWatercolorBindingNavigatorSaveItem";
             this.tWatercolorBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 24);
             this.tWatercolorBindingNavigatorSaveItem.Text = "Сохранить данные";
@@ -428,25 +428,25 @@
             // russian_nameTextBox
             // 
             this.russian_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tWatercolorBindingSource, "Russian name", true));
-            this.russian_nameTextBox.Location = new System.Drawing.Point(186, 100);
+            this.russian_nameTextBox.Location = new System.Drawing.Point(173, 100);
             this.russian_nameTextBox.Name = "russian_nameTextBox";
-            this.russian_nameTextBox.Size = new System.Drawing.Size(161, 22);
+            this.russian_nameTextBox.Size = new System.Drawing.Size(183, 22);
             this.russian_nameTextBox.TabIndex = 11;
             // 
             // english_nameTextBox
             // 
             this.english_nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tWatercolorBindingSource, "English name", true));
-            this.english_nameTextBox.Location = new System.Drawing.Point(186, 128);
+            this.english_nameTextBox.Location = new System.Drawing.Point(173, 128);
             this.english_nameTextBox.Name = "english_nameTextBox";
-            this.english_nameTextBox.Size = new System.Drawing.Size(161, 22);
+            this.english_nameTextBox.Size = new System.Drawing.Size(183, 22);
             this.english_nameTextBox.TabIndex = 13;
             // 
             // pigmentsTextBox
             // 
             this.pigmentsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.tWatercolorBindingSource, "Pigments", true));
-            this.pigmentsTextBox.Location = new System.Drawing.Point(186, 156);
+            this.pigmentsTextBox.Location = new System.Drawing.Point(173, 156);
             this.pigmentsTextBox.Name = "pigmentsTextBox";
-            this.pigmentsTextBox.Size = new System.Drawing.Size(161, 22);
+            this.pigmentsTextBox.Size = new System.Drawing.Size(183, 22);
             this.pigmentsTextBox.TabIndex = 15;
             // 
             // colorSetTextBox
@@ -498,9 +498,8 @@
             this.toBuyCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tWatercolorBindingSource, "ToBuy", true));
             this.toBuyCheckBox.Location = new System.Drawing.Point(141, 383);
             this.toBuyCheckBox.Name = "toBuyCheckBox";
-            this.toBuyCheckBox.Size = new System.Drawing.Size(120, 24);
+            this.toBuyCheckBox.Size = new System.Drawing.Size(25, 24);
             this.toBuyCheckBox.TabIndex = 27;
-            this.toBuyCheckBox.Text = "checkBox1";
             this.toBuyCheckBox.UseVisualStyleBackColor = true;
             // 
             // SetComboBox
@@ -616,9 +615,9 @@
             this.hidingpower.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.hidingpower.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.hidingpower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hidingpower.Location = new System.Drawing.Point(186, 252);
+            this.hidingpower.Location = new System.Drawing.Point(218, 252);
             this.hidingpower.Name = "hidingpower";
-            this.hidingpower.Size = new System.Drawing.Size(104, 27);
+            this.hidingpower.Size = new System.Drawing.Size(42, 27);
             this.hidingpower.TabIndex = 37;
             this.hidingpower.ThreeState = true;
             this.hidingpower.UseVisualStyleBackColor = true;
@@ -677,8 +676,9 @@
             this.Controls.Add(this.tWatercolorBindingNavigator);
             this.Controls.Add(this.hiding_powerTextBox);
             this.Controls.Add(this.light_fastnessTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ShowColor";
-            this.Text = "ShowColor";
+            this.Text = "Показать цвет";
             this.Load += new System.EventHandler(this.ShowColor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.watercolorsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tWatercolorBindingSource)).EndInit();

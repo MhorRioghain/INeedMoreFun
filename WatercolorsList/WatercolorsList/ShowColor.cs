@@ -35,8 +35,6 @@ namespace WatercolorsList
             this.tSetsTableAdapter.Fill(this.watercolorsDataSet.TSets);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "watercolorsDataSet.TWatercolor". При необходимости она может быть перемещена или удалена.
             this.tWatercolorTableAdapter.Fill(this.watercolorsDataSet.TWatercolor);
-            
-            ///MyOwnColoringPictureBox.Image = Image.FromFile(myOwnColoringTextBox.Text);  
         }
 
         private void coloringTextBox_TextChanged(object sender, EventArgs e)

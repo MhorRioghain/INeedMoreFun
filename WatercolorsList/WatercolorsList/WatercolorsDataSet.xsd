@@ -272,7 +272,21 @@
               <Mapping SourceColumn="Cuvets" DataSetColumn="Cuvets" />
               <Mapping SourceColumn="ToBuy" DataSetColumn="ToBuy" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="WatercolorsConnectionString (Settings)" DbObjectName="TWatercolor" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FindDuplicated" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDuplicates" GeneratorSourceName="FindDuplicated" GetMethodModifier="Public" GetMethodName="GetDuplicates" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDuplicates" UserSourceName="FindDuplicated">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT x.Id, x.[Set], x.Coloring, x.MyOwnColoring, x.[Russian name], x.[English name], x.Pigments, x.ColorSet, x.[Light-fastness], x.[Hiding power], x.Amount, x.Cuvets, x.ToBuy
+FROM     (TWatercolor x INNER JOIN
+                      (SELECT [English name]
+                       FROM      TWatercolor t
+                       GROUP BY [English name]
+                       HAVING  (COUNT([English name]) &gt; 1)) y ON y.[English name] = x.[English name])</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
@@ -282,7 +296,7 @@
   <xs:element name="WatercolorsDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="WatercolorsDataSet" msprop:Generator_UserDSName="WatercolorsDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TAmount" msprop:Generator_TableClassName="TAmountDataTable" msprop:Generator_TableVarName="tableTAmount" msprop:Generator_RowChangedName="TAmountRowChanged" msprop:Generator_TablePropName="TAmount" msprop:Generator_RowDeletingName="TAmountRowDeleting" msprop:Generator_RowChangingName="TAmountRowChanging" msprop:Generator_RowEvHandlerName="TAmountRowChangeEventHandler" msprop:Generator_RowDeletedName="TAmountRowDeleted" msprop:Generator_RowClassName="TAmountRow" msprop:Generator_UserTableName="TAmount" msprop:Generator_RowEvArgName="TAmountRowChangeEvent">
+        <xs:element name="TAmount" msprop:Generator_TableClassName="TAmountDataTable" msprop:Generator_TableVarName="tableTAmount" msprop:Generator_TablePropName="TAmount" msprop:Generator_RowDeletingName="TAmountRowDeleting" msprop:Generator_RowChangingName="TAmountRowChanging" msprop:Generator_RowEvHandlerName="TAmountRowChangeEventHandler" msprop:Generator_RowDeletedName="TAmountRowDeleted" msprop:Generator_UserTableName="TAmount" msprop:Generator_RowChangedName="TAmountRowChanged" msprop:Generator_RowEvArgName="TAmountRowChangeEvent" msprop:Generator_RowClassName="TAmountRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -303,7 +317,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TColorSets" msprop:Generator_TableClassName="TColorSetsDataTable" msprop:Generator_TableVarName="tableTColorSets" msprop:Generator_RowChangedName="TColorSetsRowChanged" msprop:Generator_TablePropName="TColorSets" msprop:Generator_RowDeletingName="TColorSetsRowDeleting" msprop:Generator_RowChangingName="TColorSetsRowChanging" msprop:Generator_RowEvHandlerName="TColorSetsRowChangeEventHandler" msprop:Generator_RowDeletedName="TColorSetsRowDeleted" msprop:Generator_RowClassName="TColorSetsRow" msprop:Generator_UserTableName="TColorSets" msprop:Generator_RowEvArgName="TColorSetsRowChangeEvent">
+        <xs:element name="TColorSets" msprop:Generator_TableClassName="TColorSetsDataTable" msprop:Generator_TableVarName="tableTColorSets" msprop:Generator_TablePropName="TColorSets" msprop:Generator_RowDeletingName="TColorSetsRowDeleting" msprop:Generator_RowChangingName="TColorSetsRowChanging" msprop:Generator_RowEvHandlerName="TColorSetsRowChangeEventHandler" msprop:Generator_RowDeletedName="TColorSetsRowDeleted" msprop:Generator_UserTableName="TColorSets" msprop:Generator_RowChangedName="TColorSetsRowChanged" msprop:Generator_RowEvArgName="TColorSetsRowChangeEvent" msprop:Generator_RowClassName="TColorSetsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -324,7 +338,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TSets" msprop:Generator_TableClassName="TSetsDataTable" msprop:Generator_TableVarName="tableTSets" msprop:Generator_RowChangedName="TSetsRowChanged" msprop:Generator_TablePropName="TSets" msprop:Generator_RowDeletingName="TSetsRowDeleting" msprop:Generator_RowChangingName="TSetsRowChanging" msprop:Generator_RowEvHandlerName="TSetsRowChangeEventHandler" msprop:Generator_RowDeletedName="TSetsRowDeleted" msprop:Generator_RowClassName="TSetsRow" msprop:Generator_UserTableName="TSets" msprop:Generator_RowEvArgName="TSetsRowChangeEvent">
+        <xs:element name="TSets" msprop:Generator_TableClassName="TSetsDataTable" msprop:Generator_TableVarName="tableTSets" msprop:Generator_TablePropName="TSets" msprop:Generator_RowDeletingName="TSetsRowDeleting" msprop:Generator_RowChangingName="TSetsRowChanging" msprop:Generator_RowEvHandlerName="TSetsRowChangeEventHandler" msprop:Generator_RowDeletedName="TSetsRowDeleted" msprop:Generator_UserTableName="TSets" msprop:Generator_RowChangedName="TSetsRowChanged" msprop:Generator_RowEvArgName="TSetsRowChangeEvent" msprop:Generator_RowClassName="TSetsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -338,7 +352,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="TWatercolor" msprop:Generator_TableClassName="TWatercolorDataTable" msprop:Generator_TableVarName="tableTWatercolor" msprop:Generator_RowChangedName="TWatercolorRowChanged" msprop:Generator_TablePropName="TWatercolor" msprop:Generator_RowDeletingName="TWatercolorRowDeleting" msprop:Generator_RowChangingName="TWatercolorRowChanging" msprop:Generator_RowEvHandlerName="TWatercolorRowChangeEventHandler" msprop:Generator_RowDeletedName="TWatercolorRowDeleted" msprop:Generator_RowClassName="TWatercolorRow" msprop:Generator_UserTableName="TWatercolor" msprop:Generator_RowEvArgName="TWatercolorRowChangeEvent">
+        <xs:element name="TWatercolor" msprop:Generator_TableClassName="TWatercolorDataTable" msprop:Generator_TableVarName="tableTWatercolor" msprop:Generator_TablePropName="TWatercolor" msprop:Generator_RowDeletingName="TWatercolorRowDeleting" msprop:Generator_RowChangingName="TWatercolorRowChanging" msprop:Generator_RowEvHandlerName="TWatercolorRowChangeEventHandler" msprop:Generator_RowDeletedName="TWatercolorRowDeleted" msprop:Generator_UserTableName="TWatercolor" msprop:Generator_RowChangedName="TWatercolorRowChanged" msprop:Generator_RowEvArgName="TWatercolorRowChangeEvent" msprop:Generator_RowClassName="TWatercolorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -408,9 +422,9 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="TAmountTWatercolor" msdata:parent="TAmount" msdata:child="TWatercolor" msdata:parentkey="Id" msdata:childkey="Amount" msprop:Generator_UserChildTable="TWatercolor" msprop:Generator_ChildPropName="GetTWatercolorRows" msprop:Generator_UserRelationName="TAmountTWatercolor" msprop:Generator_RelationVarName="relationTAmountTWatercolor" msprop:Generator_UserParentTable="TAmount" msprop:Generator_ParentPropName="TAmountRow" />
-      <msdata:Relationship name="TColorSetsTWatercolor" msdata:parent="TColorSets" msdata:child="TWatercolor" msdata:parentkey="Id" msdata:childkey="ColorSet" msprop:Generator_UserChildTable="TWatercolor" msprop:Generator_ChildPropName="GetTWatercolorRows" msprop:Generator_UserRelationName="TColorSetsTWatercolor" msprop:Generator_RelationVarName="relationTColorSetsTWatercolor" msprop:Generator_UserParentTable="TColorSets" msprop:Generator_ParentPropName="TColorSetsRow" />
-      <msdata:Relationship name="TSetsTWatercolor" msdata:parent="TSets" msdata:child="TWatercolor" msdata:parentkey="Id" msdata:childkey="Set" msprop:Generator_UserChildTable="TWatercolor" msprop:Generator_ChildPropName="GetTWatercolorRows" msprop:Generator_UserRelationName="TSetsTWatercolor" msprop:Generator_RelationVarName="relationTSetsTWatercolor" msprop:Generator_UserParentTable="TSets" msprop:Generator_ParentPropName="TSetsRow" />
+      <msdata:Relationship name="TAmountTWatercolor" msdata:parent="TAmount" msdata:child="TWatercolor" msdata:parentkey="Id" msdata:childkey="Amount" msprop:Generator_UserChildTable="TWatercolor" msprop:Generator_ChildPropName="GetTWatercolorRows" msprop:Generator_UserRelationName="TAmountTWatercolor" msprop:Generator_ParentPropName="TAmountRow" msprop:Generator_RelationVarName="relationTAmountTWatercolor" msprop:Generator_UserParentTable="TAmount" />
+      <msdata:Relationship name="TColorSetsTWatercolor" msdata:parent="TColorSets" msdata:child="TWatercolor" msdata:parentkey="Id" msdata:childkey="ColorSet" msprop:Generator_UserChildTable="TWatercolor" msprop:Generator_ChildPropName="GetTWatercolorRows" msprop:Generator_UserRelationName="TColorSetsTWatercolor" msprop:Generator_ParentPropName="TColorSetsRow" msprop:Generator_RelationVarName="relationTColorSetsTWatercolor" msprop:Generator_UserParentTable="TColorSets" />
+      <msdata:Relationship name="TSetsTWatercolor" msdata:parent="TSets" msdata:child="TWatercolor" msdata:parentkey="Id" msdata:childkey="Set" msprop:Generator_UserChildTable="TWatercolor" msprop:Generator_ChildPropName="GetTWatercolorRows" msprop:Generator_UserRelationName="TSetsTWatercolor" msprop:Generator_ParentPropName="TSetsRow" msprop:Generator_RelationVarName="relationTSetsTWatercolor" msprop:Generator_UserParentTable="TSets" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

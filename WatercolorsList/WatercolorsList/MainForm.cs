@@ -25,7 +25,7 @@ namespace WatercolorsList
             this.Validate();
             this.tWatercolorBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.watercolorsDataSet);
-
+            CountWhatToBuy();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -43,22 +43,38 @@ namespace WatercolorsList
             // TODO: данная строка кода позволяет загрузить данные в таблицу "watercolorsDataSet.TSets". При необходимости она может быть перемещена или удалена.
             this.tSetsTableAdapter.Fill(this.watercolorsDataSet.TSets);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "watercolorsDataSet.TWatercolor". При необходимости она может быть перемещена или удалена.
-            this.tWatercolorTableAdapter.Fill(this.watercolorsDataSet.TWatercolor);   
+            this.tWatercolorTableAdapter.Fill(this.watercolorsDataSet.TWatercolor);
+            CountWhatToBuy();
+        }
+
+        private void CountWhatToBuy()
+        {
+            int rCount = 0;
+            for (int i = 0; i < tWatercolorDataGridView.RowCount - 1; i++)
+            {
+                if (Convert.ToBoolean(tWatercolorDataGridView["ToBuy", i].Value) == true)
+                {
+                    rCount++;
+                }
+            }
+            countLabel.Text = rCount + " шт.";
         }
 
         private void tWatercolorDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.ColumnIndex == 15 && e.RowIndex < tWatercolorDataGridView.RowCount - 1)
             {
                 ShowColor sb = new ShowColor();
                 sb.tWatercolorBindingSource.Filter = "id = " + Convert.ToInt32(tWatercolorDataGridView[0, e.RowIndex].Value);
+                sb.Text = tWatercolorDataGridView["RussianName", e.RowIndex].Value.ToString();
                 sb.Show();
             }
         }
 
         private void ShowPictures()
         {
-            for (int row = 0; row < tWatercolorDataGridView.Rows.Count - 1; row++)
+            for (int row = 0; row < tWatercolorDataGridView.Rows.Count - 1; row++) //D:\Git\INeedMoreFun\WatercolorsList\
             {
                 if (tWatercolorDataGridView["Coloring", row].Value.ToString() != "")
                 {
@@ -104,6 +120,7 @@ namespace WatercolorsList
         private void ShowAll_Click(object sender, EventArgs e)
         {
             tWatercolorBindingSource.RemoveFilter();
+            this.tWatercolorTableAdapter.Fill(this.watercolorsDataSet.TWatercolor);
             color_set_Filter = null;
         }
 
@@ -180,6 +197,11 @@ namespace WatercolorsList
         private void TrueToBuy_Click(object sender, EventArgs e)
         {
             tWatercolorBindingSource.Filter = color_set_Filter + "ToBuy = true";
+        }
+
+        private void Duplicates_Click(object sender, EventArgs e)
+        {
+            tWatercolorTableAdapter.FindDuplicated(watercolorsDataSet.TWatercolor);
         }
     }
 }

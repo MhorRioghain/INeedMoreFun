@@ -72,6 +72,8 @@
             this.ToBuy = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Open = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Duplicates = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -97,6 +99,7 @@
             this.EnNameSearch = new System.Windows.Forms.Button();
             this.RusNameSearch = new System.Windows.Forms.Button();
             this.FilterBox = new System.Windows.Forms.TextBox();
+            this.countLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.watercolorsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tWatercolorBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tWatercolorBindingNavigator)).BeginInit();
@@ -166,7 +169,7 @@
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Image = global::WatercolorsList.Properties.Resources.add2;
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 24);
@@ -182,7 +185,7 @@
             // bindingNavigatorDeleteItem
             // 
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Image = global::WatercolorsList.Properties.Resources.close1;
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 24);
@@ -191,7 +194,7 @@
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Image = global::WatercolorsList.Properties.Resources.first;
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 24);
@@ -200,7 +203,7 @@
             // bindingNavigatorMovePreviousItem
             // 
             this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Image = global::WatercolorsList.Properties.Resources.left1;
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 24);
@@ -228,7 +231,7 @@
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Image = global::WatercolorsList.Properties.Resources.right1;
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 24);
@@ -237,7 +240,7 @@
             // bindingNavigatorMoveLastItem
             // 
             this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Image = global::WatercolorsList.Properties.Resources.last;
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 24);
@@ -251,7 +254,7 @@
             // tWatercolorBindingNavigatorSaveItem
             // 
             this.tWatercolorBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tWatercolorBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("tWatercolorBindingNavigatorSaveItem.Image")));
+            this.tWatercolorBindingNavigatorSaveItem.Image = global::WatercolorsList.Properties.Resources.diskette1;
             this.tWatercolorBindingNavigatorSaveItem.Name = "tWatercolorBindingNavigatorSaveItem";
             this.tWatercolorBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 24);
             this.tWatercolorBindingNavigatorSaveItem.Text = "Сохранить данные";
@@ -260,7 +263,7 @@
             // UpdateBtn
             // 
             this.UpdateBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.UpdateBtn.Image = ((System.Drawing.Image)(resources.GetObject("UpdateBtn.Image")));
+            this.UpdateBtn.Image = global::WatercolorsList.Properties.Resources.rel;
             this.UpdateBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.UpdateBtn.Name = "UpdateBtn";
             this.UpdateBtn.Size = new System.Drawing.Size(23, 24);
@@ -322,7 +325,7 @@
             this.tWatercolorDataGridView.Location = new System.Drawing.Point(12, 30);
             this.tWatercolorDataGridView.Name = "tWatercolorDataGridView";
             this.tWatercolorDataGridView.RowTemplate.Height = 24;
-            this.tWatercolorDataGridView.Size = new System.Drawing.Size(1214, 561);
+            this.tWatercolorDataGridView.Size = new System.Drawing.Size(1214, 593);
             this.tWatercolorDataGridView.TabIndex = 33;
             this.tWatercolorDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tWatercolorDataGridView_CellContentClick);
             this.tWatercolorDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.tWatercolorDataGridView_DataError);
@@ -330,7 +333,7 @@
             // id
             // 
             this.id.DataPropertyName = "Id";
-            this.id.HeaderText = "Id";
+            this.id.HeaderText = "№";
             this.id.Name = "id";
             this.id.Width = 30;
             // 
@@ -339,7 +342,7 @@
             this.Set.DataPropertyName = "Set";
             this.Set.DataSource = this.tSetsBindingSource;
             this.Set.DisplayMember = "Title";
-            this.Set.HeaderText = "Set";
+            this.Set.HeaderText = "Набор";
             this.Set.Name = "Set";
             this.Set.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Set.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -355,7 +358,7 @@
             // 
             // ColoringPicture
             // 
-            this.ColoringPicture.HeaderText = "ColoringPicture";
+            this.ColoringPicture.HeaderText = "Выкраска";
             this.ColoringPicture.Name = "ColoringPicture";
             this.ColoringPicture.Width = 70;
             // 
@@ -368,28 +371,28 @@
             // 
             // MyOwnColoringPicture
             // 
-            this.MyOwnColoringPicture.HeaderText = "MyOwnColoringPicture";
+            this.MyOwnColoringPicture.HeaderText = "Моя выкраска";
             this.MyOwnColoringPicture.Name = "MyOwnColoringPicture";
             this.MyOwnColoringPicture.Width = 70;
             // 
             // RussianName
             // 
             this.RussianName.DataPropertyName = "Russian name";
-            this.RussianName.HeaderText = "Russian name";
+            this.RussianName.HeaderText = "Русское название";
             this.RussianName.Name = "RussianName";
             this.RussianName.Width = 120;
             // 
             // EnglishName
             // 
             this.EnglishName.DataPropertyName = "English name";
-            this.EnglishName.HeaderText = "English name";
+            this.EnglishName.HeaderText = "Английское название";
             this.EnglishName.Name = "EnglishName";
             this.EnglishName.Width = 120;
             // 
             // Pigments
             // 
             this.Pigments.DataPropertyName = "Pigments";
-            this.Pigments.HeaderText = "Pigments";
+            this.Pigments.HeaderText = "Пигменты";
             this.Pigments.Name = "Pigments";
             // 
             // ColorSet
@@ -397,7 +400,7 @@
             this.ColorSet.DataPropertyName = "ColorSet";
             this.ColorSet.DataSource = this.tColorSetsBindingSource;
             this.ColorSet.DisplayMember = "Title_ru";
-            this.ColorSet.HeaderText = "ColorSet";
+            this.ColorSet.HeaderText = "Цвет";
             this.ColorSet.Name = "ColorSet";
             this.ColorSet.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColorSet.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -423,7 +426,7 @@
             this.Amount.DataPropertyName = "Amount";
             this.Amount.DataSource = this.tAmountBindingSource;
             this.Amount.DisplayMember = "Title_ru";
-            this.Amount.HeaderText = "Amount";
+            this.Amount.HeaderText = "Количество";
             this.Amount.Name = "Amount";
             this.Amount.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Amount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
@@ -432,7 +435,7 @@
             // Cuvets
             // 
             this.Cuvets.DataPropertyName = "Cuvets";
-            this.Cuvets.HeaderText = "Cuvets";
+            this.Cuvets.HeaderText = "Кюв.";
             this.Cuvets.Name = "Cuvets";
             this.Cuvets.Width = 40;
             // 
@@ -446,14 +449,18 @@
             // 
             // Open
             // 
-            this.Open.HeaderText = "Open";
+            this.Open.HeaderText = "Открыть цвет";
             this.Open.Name = "Open";
-            this.Open.Text = "Open";
+            this.Open.Text = "Открыть";
             this.Open.UseColumnTextForButtonValue = true;
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.countLabel);
+            this.panel1.Controls.Add(this.Duplicates);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
@@ -481,8 +488,28 @@
             this.panel1.Controls.Add(this.FilterBox);
             this.panel1.Location = new System.Drawing.Point(1233, 31);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(236, 560);
+            this.panel1.Size = new System.Drawing.Size(236, 592);
             this.panel1.TabIndex = 34;
+            // 
+            // Duplicates
+            // 
+            this.Duplicates.AutoSize = true;
+            this.Duplicates.Location = new System.Drawing.Point(60, 508);
+            this.Duplicates.Name = "Duplicates";
+            this.Duplicates.Size = new System.Drawing.Size(134, 27);
+            this.Duplicates.TabIndex = 35;
+            this.Duplicates.Text = "Найти дубликаты";
+            this.Duplicates.UseVisualStyleBackColor = true;
+            this.Duplicates.Click += new System.EventHandler(this.Duplicates_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(78, 450);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(98, 17);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Надо купить?";
             // 
             // label7
             // 
@@ -524,9 +551,9 @@
             // BestMatch
             // 
             this.BestMatch.AutoSize = true;
-            this.BestMatch.Location = new System.Drawing.Point(66, 408);
+            this.BestMatch.Location = new System.Drawing.Point(63, 408);
             this.BestMatch.Name = "BestMatch";
-            this.BestMatch.Size = new System.Drawing.Size(128, 27);
+            this.BestMatch.Size = new System.Drawing.Size(134, 27);
             this.BestMatch.TabIndex = 20;
             this.BestMatch.Text = "Лучший вариант";
             this.BestMatch.UseVisualStyleBackColor = true;
@@ -597,41 +624,41 @@
             // 
             // ShowAll
             // 
-            this.ShowAll.Location = new System.Drawing.Point(70, 534);
+            this.ShowAll.Location = new System.Drawing.Point(60, 550);
             this.ShowAll.Name = "ShowAll";
-            this.ShowAll.Size = new System.Drawing.Size(75, 23);
+            this.ShowAll.Size = new System.Drawing.Size(122, 34);
             this.ShowAll.TabIndex = 13;
-            this.ShowAll.Text = "button13";
+            this.ShowAll.Text = "Показать всё";
             this.ShowAll.UseVisualStyleBackColor = true;
             this.ShowAll.Click += new System.EventHandler(this.ShowAll_Click);
             // 
             // ToBuyAll
             // 
-            this.ToBuyAll.Location = new System.Drawing.Point(135, 475);
+            this.ToBuyAll.Location = new System.Drawing.Point(166, 470);
             this.ToBuyAll.Name = "ToBuyAll";
-            this.ToBuyAll.Size = new System.Drawing.Size(75, 23);
+            this.ToBuyAll.Size = new System.Drawing.Size(55, 23);
             this.ToBuyAll.TabIndex = 12;
-            this.ToBuyAll.Text = "button12";
+            this.ToBuyAll.Text = "Все";
             this.ToBuyAll.UseVisualStyleBackColor = true;
             this.ToBuyAll.Click += new System.EventHandler(this.ToBuyAll_Click);
             // 
             // NotToBuy
             // 
-            this.NotToBuy.Location = new System.Drawing.Point(70, 476);
+            this.NotToBuy.Location = new System.Drawing.Point(98, 470);
             this.NotToBuy.Name = "NotToBuy";
-            this.NotToBuy.Size = new System.Drawing.Size(75, 23);
+            this.NotToBuy.Size = new System.Drawing.Size(55, 23);
             this.NotToBuy.TabIndex = 11;
-            this.NotToBuy.Text = "button11";
+            this.NotToBuy.Text = "Нет";
             this.NotToBuy.UseVisualStyleBackColor = true;
             this.NotToBuy.Click += new System.EventHandler(this.NotToBuy_Click);
             // 
             // TrueToBuy
             // 
-            this.TrueToBuy.Location = new System.Drawing.Point(12, 476);
+            this.TrueToBuy.Location = new System.Drawing.Point(29, 470);
             this.TrueToBuy.Name = "TrueToBuy";
-            this.TrueToBuy.Size = new System.Drawing.Size(75, 23);
+            this.TrueToBuy.Size = new System.Drawing.Size(55, 23);
             this.TrueToBuy.TabIndex = 10;
-            this.TrueToBuy.Text = "button10";
+            this.TrueToBuy.Text = "Да";
             this.TrueToBuy.UseVisualStyleBackColor = true;
             this.TrueToBuy.Click += new System.EventHandler(this.TrueToBuy_Click);
             // 
@@ -759,16 +786,26 @@
             this.FilterBox.Size = new System.Drawing.Size(189, 22);
             this.FilterBox.TabIndex = 0;
             // 
+            // countLabel
+            // 
+            this.countLabel.AutoSize = true;
+            this.countLabel.Location = new System.Drawing.Point(184, 450);
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(26, 17);
+            this.countLabel.TabIndex = 36;
+            this.countLabel.Text = "шт";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1481, 603);
+            this.ClientSize = new System.Drawing.Size(1481, 635);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tWatercolorDataGridView);
             this.Controls.Add(this.tWatercolorBindingNavigator);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Список красок";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.watercolorsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tWatercolorBindingSource)).EndInit();
@@ -813,22 +850,6 @@
         private WatercolorsDataSetTableAdapters.TAmountTableAdapter tAmountTableAdapter;
         private System.Windows.Forms.DataGridView tWatercolorDataGridView;
         private System.Windows.Forms.ToolStripButton UpdateBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Set;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Coloring;
-        private System.Windows.Forms.DataGridViewImageColumn ColoringPicture;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MyOwnColoring;
-        private System.Windows.Forms.DataGridViewImageColumn MyOwnColoringPicture;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RussianName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EnglishName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pigments;
-        private System.Windows.Forms.DataGridViewComboBoxColumn ColorSet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LightFastness;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HidingPower;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cuvets;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn ToBuy;
-        private System.Windows.Forms.DataGridViewButtonColumn Open;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button TrueToBuy;
         private System.Windows.Forms.Button HP3;
@@ -855,6 +876,25 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Set;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Coloring;
+        private System.Windows.Forms.DataGridViewImageColumn ColoringPicture;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MyOwnColoring;
+        private System.Windows.Forms.DataGridViewImageColumn MyOwnColoringPicture;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RussianName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EnglishName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pigments;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ColorSet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LightFastness;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HidingPower;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cuvets;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn ToBuy;
+        private System.Windows.Forms.DataGridViewButtonColumn Open;
+        private System.Windows.Forms.Button Duplicates;
+        private System.Windows.Forms.Label countLabel;
     }
 }
 
