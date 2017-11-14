@@ -430,7 +430,7 @@
             // 
             this.isFavouriteCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
             this.isFavouriteCheckBox.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN2;
+            this.isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_empty;
             this.isFavouriteCheckBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.isFavouriteCheckBox.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.isFavouriteCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.tBooksBindingSource, "IsFavourite", true));

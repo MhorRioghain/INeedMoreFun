@@ -42,13 +42,13 @@ namespace Bookshelf
             switch (isFavouriteCheckBox.CheckState)
             {
                 case CheckState.Checked:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_full;
                     break;
                 case CheckState.Indeterminate:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN31;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_half;
                     break;
                 case CheckState.Unchecked:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN2;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_empty;
                     break;
                 default:
                     break;
@@ -73,6 +73,8 @@ namespace Bookshelf
             }
         }
 
+
+        // TODO: устанавливает значение в выпадающий список.
         private void CategoryComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             categoryTextBox.Text = Convert.ToString(CategoryComboBox.SelectedValue);
@@ -100,11 +102,13 @@ namespace Bookshelf
             }
         }
 
+        // TODO: устанавливает текущее значение в выпадающий список.
         private void categoryTextBox_TextChanged(object sender, EventArgs e)
         {
             CategoryComboBox.SelectedValue = categoryTextBox.Text;
         }
 
+        // TODO: устанавливает текущее значение в выпадающий список.
         private void shelfTextBox_TextChanged(object sender, EventArgs e)
         {
             ShelfComboBox.SelectedValue = shelfTextBox.Text;

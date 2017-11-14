@@ -58,13 +58,13 @@ namespace Bookshelf
             switch (isFavouriteCheckBox.CheckState)
             {
                 case CheckState.Checked:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_full;
                     break;
                 case CheckState.Indeterminate:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN31;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_half;
                     break;
                 case CheckState.Unchecked:
-                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.starN2;
+                    isFavouriteCheckBox.BackgroundImage = global::Bookshelf.Properties.Resources.star_empty;
                     break;
                 default:
                     break;

@@ -195,8 +195,8 @@ namespace Bookshelf
         private void Un_Read_Click(object sender, EventArgs e)
         {
             filterRead = null;
-            filterRead = AddAnd() + "IsRead = false OR IsRead = true";
-            tBooksBindingSource.Filter = filterName + filterSeries + filterRead;
+            filterRead = AddAnd();
+            tBooksBindingSource.Filter = filterName + filterSeries + filterRead + "IsRead = false OR " + filterName + filterSeries + filterRead + "IsRead = true";
         }
 
         // TODO: добавляет операнд "и" к началу строки фильтра, если задано несколько критериев поиска. 
@@ -275,7 +275,7 @@ namespace Bookshelf
                 if (r.Index == tBooksDataGridView.RowCount - 1)
                 {
                     r.HeaderCell.Style.BackColor = Color.WhiteSmoke;
-                }
+                }   
             }
         }
 

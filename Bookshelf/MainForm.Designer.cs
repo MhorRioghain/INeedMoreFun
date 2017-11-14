@@ -689,7 +689,7 @@
             // 
             // FavouriteAll
             // 
-            this.FavouriteAll.BackgroundImage = global::Bookshelf.Properties.Resources.starN31;
+            this.FavouriteAll.BackgroundImage = global::Bookshelf.Properties.Resources.star_half;
             this.FavouriteAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.FavouriteAll.FlatAppearance.BorderSize = 0;
             this.FavouriteAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
